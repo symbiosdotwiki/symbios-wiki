@@ -3,6 +3,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
   reactStrictMode: true,
+  // distDir: 'build',
   exportPathMap: function() {
     return {
       "/symbios-wiki": {page: "/"}
