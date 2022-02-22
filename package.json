@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export -o build/",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build && touch build/.nojekyll",
     "deploy": "gh-pages -d build && git add . && git commit -m \"Auto Deploy\" && git push origin main",
    "start": "next start",
     "lint": "next lint"
