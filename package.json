@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "deploy": "next build && next export && git add . && git commit  --allow-empty -m \"Deploy gh-pages\" && git push",
+    "deploy": "next build && next export && git add . && git commit  --allow-empty -m \"Deploy gh-pages\" && git push git add out/ && git commit  --allow-empty -m \"Deploy gh-pages\" && git push origin gh-pages",
     "start": "next start",
     "lint": "next lint"
   },
