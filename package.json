@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o build/",
+    "build": "next build && next export -o build/ && touch build/.nojekyll",
     "predeploy": "yarn build",
-    "deploy": " touch build/.nojekyll && gh-pages -d build && git add . && git commit -m \"Auto Deploy\" && git push",
+    "deploy": "gh-pages -d build && git add . && git commit -m \"Auto Deploy\" && git push",
    "start": "next start",
     "lint": "next lint"
   },
