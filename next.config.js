@@ -9,7 +9,7 @@ module.exports = {
       "/symbios-wiki": {page: "/"}
     }
   },
-  assetPrefix: isProd ? '/your-github-repo-name/' : '',
+  assetPrefix: isProd ? '/symbios-wiki/' : '',
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
