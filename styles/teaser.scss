@@ -1,0 +1,369 @@
+@import "./neumorph";
+
+$hover-time: .25s;
+$desc-pad: 13%;
+$teaser-rad: 50%;
+$hover-rad: 14%;
+$teaser-width: 95%;
+$hover-width: 100%;
+$desc-size: 2 vmin;
+
+$img-ratio: .91;
+
+$transform-teaser: -($teaser-width - $hover-width)/2;
+$hover-scale: $hover-width / $teaser-width;
+
+$spin-off: 2%;
+$spin-blur: .25;
+$spin-time: 2s;
+$sblur: 1rem;
+
+@keyframes spinny { 100% {transform: rotate(360deg);}}
+@keyframes spinny-shadow { 100% {transform: translate($spin-off, $spin-off) rotate(360deg) ;}}
+@keyframes spinny-refl { 100% {transform: translate(-1*$spin-off, -1*$spin-off) rotate(360deg) ;}}
+.spinny {
+  // transform:rotate(0deg);
+  // animation: 4s linear infinite spinny;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 53%;
+}
+.spinny-top-svg{
+  animation-name: rainbow-fill, spinny;
+  animation-duration: $rainbowTime, $spin-time;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: infinite;
+}
+
+.spin-loader {
+  width: 30%;
+  height: 30%;
+}
+
+.spinners-all {
+  //z-index: 1000;
+}
+
+.spinny-shadow-svg{
+  transform: translate($spin-off, $spin-off) rotate(0deg) ;
+  // animation: $spin-time linear infinite spinny-shadow;
+  fill: hsl(0,$shadSat,$valDark);
+  // filter: drop-shadow(0 0 $blur1*$spin-blur hsl(0,$shadSat,$valDark));
+   animation-name: rainbow-fill-shad, spinny-shadow;
+  animation-duration: $rainbowTime, $spin-time;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: infinite;
+}
+
+.spinny-shadow, .spinny-refl {
+  // mix-blend-mode: luminosity;
+  filter: blur($sblur*$spin-blur);
+}
+
+.spinny-refl-svg{
+  transform: translate(-$spin-off, -$spin-off) rotate(0deg) ;
+  // animation: $spin-time linear infinite spinny-refl;
+  fill: hsl(0,$lightSat,$valLight+.5*$valDelta);
+   animation-name: rainbow-fill-refl, spinny-refl;
+  animation-duration: $rainbowTime, $spin-time;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: infinite;
+  
+}
+
+.hidden-spin svg {
+  opacity: .01;
+  // fill: rgba(0,0,0,0);
+  transition: all 1s;
+  visibility: hidden;
+}
+
+.bg-grad {
+  background-image: linear-gradient(
+    135deg, 
+    hsl(0, 0, $val + .5*$valDelta) 0%, 
+    hsl(0, 0, $val - .5*$valDelta) 100%
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -998;
+
+  //background-blend-mode: luminosity; 
+
+  animation-name: rainbow;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.row {
+  padding-top: 20px;
+  padding-bottom: 60px;
+  padding-left: 10vh;
+  padding-right: 10vh;
+  overflow-x: hidden;
+}
+
+.infinite-scroll-component {
+  overflow-x: hidden !important;
+}
+
+.post-teaser {
+  overflow: visible;
+}
+
+.teaser-square-container {
+  position:absolute;
+  width: 100%;
+  height: 0;
+  padding: 0;
+   padding-bottom: 100%;
+   cursor: crosshair;
+   position: relative;
+   overflow: visible;
+
+   background: rgba(0, 0, 0, 0);
+}
+
+.teaser-text {
+  position: absolute;
+  top: 100%;
+}
+
+.teaser-square {
+  position: absolute;
+  width: $teaser-width;
+  height: 0;
+  padding-bottom: $teaser-width;
+  overflow: hidden;
+
+  transition: all $hover-time;
+  -webkit-transition: all $hover-time;
+  -moz-transition:  all $hover-time;
+  -ms-transition:  all $hover-time;
+  -o-transition:  all $hover-time;
+
+  border-radius: $teaser-rad;
+  border: 0px solid white;
+  margin: auto;
+  transform: translateY($transform-teaser) scale(1);
+}
+
+.teaser-square:hover, .teaser-square:active {
+  // width: $hover-width;
+  // padding-bottom: $hover-width;
+  border-radius: $hover-rad;
+  transform: translateY($transform-teaser) scale($hover-scale);
+}
+
+.teaser-square {
+  // content: '';
+  // display: block;
+  // width: $teaser-width;
+  // height: $teaser-width;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+
+  // transform: translate($transform-teaser, $transform-teaser) scale(1);
+
+  // border-radius: $teaser-rad;
+  // transition: all $hover-time;
+
+  // box-shadow:
+  //       -1*$h1 -1*$h1 $blur1 hsl(180,$lightSat,$valLight),
+  //       $h1 $h1 $blur1 hsl(180,$shadSat,$valDark);
+
+  animation-name: rainbow-shadow-md;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+
+.teaser-square:hover ~ .teaser-square-shadow, .teaser-square:focus ~ .teaser-square-shadow  , .teaser-square:active ~ .teaser-square-shadow  {
+  border-radius: $hover-rad;
+  // width: $hover-width;
+  // height: $hover-width;
+  transform: translate($transform-teaser, $transform-teaser) scale($hover-scale);
+}
+
+.teaser-square-cover {
+  background: white;
+  opacity: 0.01;
+
+  transition: all $hover-time;
+  -webkit-transition: all $hover-time;
+  -moz-transition:  all $hover-time;
+  -ms-transition:  all $hover-time;
+  -o-transition:  all $hover-time;
+
+  width: 100%;
+  height: 100%;
+  // z-index: -1;
+  // position: absolute;
+
+  mix-blend-mode: normal;
+}
+
+.teaser-square:hover .teaser-square-cover, .teaser-square:focus .teaser-square-cover , .teaser-square:active .teaser-square-cover {
+  opacity: .2;
+  transform: scale($hover-scale);
+}
+
+.teaser-img {
+  position: absolute;
+  width: 100% * $img-ratio;
+  height: 100% * $img-ratio;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: $teaser-rad;// * $img-ratio;
+  // z-index: -10;
+  transition: all $hover-time;
+  -webkit-transition: all $hover-time;
+  -moz-transition:  all $hover-time;
+  -ms-transition:  all $hover-time;
+  -o-transition:  all $hover-time;
+
+  opacity: .99;
+
+  mix-blend-mode: normal;
+
+  animation-name: rainbow-shadow-sm;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  // border: #999;
+  // border-width: 2px;
+  // border-style: solid;
+  // border-opacity: 20%;
+}
+
+.teaser-square:hover .teaser-img, .teaser-square:focus .teaser-img, .teaser-square:active .teaser-img {
+  border-radius: $hover-rad * $img-ratio;
+  opacity: .16;
+  // transform: translate(-50%, -50%) scale($hover-scale);
+}
+
+.post-title {
+  padding-left: $desc-pad;
+  padding-right: $desc-pad;
+  margin-top: .5em;
+  margin-bottom: 2.5em;
+  text-align: center;
+  font-weight: bold;
+
+  animation-name: rainbow-text;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  // text-shadow : 2px 2px 4px hsl(50, 0, 60), -2px -2px 4px hsl(50, 0, 100);
+  // font-weight: 900;
+}
+
+// .post-teaser:hover .post-title {
+//   transform: translateY(($teaser-width - $hover-width)/2);
+// }
+
+.teaser-square .description {
+  position: absolute;
+  // z-index: 99999;
+  height: 100%;
+  width: 100%;
+  transition: all $hover-time/2;
+  -webkit-transition: all $hover-time/2;
+  -moz-transition:  all $hover-time/2;
+  -ms-transition:  all $hover-time/2;
+  -o-transition:  all $hover-time/2;
+
+  overflow: hidden;
+
+  overflow-wrap: break-word;
+
+  mix-blend-mode: normal;
+
+  // background: linear-gradient(
+  //   135deg, 
+  //   rgba(255, 255, 255, .5) 0%, 
+  //   rgba(0, 0, 0, .5) 100%
+  // );
+
+  background: rgba(0, 0, 0, 0);
+
+  color: $font-color;
+  text-shadow: 0 0 .5em $font-color;
+  opacity: 0.01;
+  padding: $desc-pad  + ($teaser-width - $hover-width)/2;
+  font-size: $desc-size;
+  padding-top: $desc-pad*.8 ;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+  transform: translateY(30%);
+}
+.teaser-square .description::-webkit-scrollbar { /* WebKit */
+  width: 0px;
+}
+
+.teaser-square:hover .description,.teaser-square:focus .description, .teaser-square:active .description  {
+  transition: all $hover-time;
+  -webkit-transition: all $hover-time;
+  -moz-transition:  all $hover-time;
+  -ms-transition:  all $hover-time;
+  -o-transition:  all $hover-time;
+  // overflow: scroll;
+  opacity: .99;
+  // padding: $desc-pad;
+  //padding-top: $desc-pad*.8 ;
+  // transform: scale($hover-scale);
+  transform: translateY(0%);
+}
+
+.client {
+  font-size: .75em;
+  margin-top: 10px;
+}
+
+.client-type {
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.teaser-square a {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.teaser-square img {
+  position:absolute;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.hidden-teaser {
+  opacity: .01;
+  transition: all 1s;
+  visibility: hidden;
+
+  transition: all 1;
+  -webkit-transition: all 1;
+  -moz-transition:  all 1;
+  -ms-transition:  all 1;
+  -o-transition:  all 1;
+}
+
+.shown-teaser {
+  opacity: 1;
+  visibility: visible;
+}
+
+

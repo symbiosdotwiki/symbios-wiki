@@ -1,0 +1,10 @@
+.player-hidden {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+
+.player-loaded {
+  opacity: 1;
+  transition: opacity 1s;
+}

@@ -1,0 +1,205 @@
+@import "./neumorph"; 
+// @import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/bootstrap";
+
+$railFrac: .1;
+$railThick: $railFrac * 100%;
+$knobSize: 20vh;
+
+$circleSize: 4vh;
+$circlePerc: .6;
+$rotRad: $knobSize * (1-2*$railFrac) - $circleSize * 1;
+$circleFix: $circleSize * (1-$circlePerc) / 2;
+
+$tsInner-z: 200;
+
+@keyframes spin {
+  100% {
+    transform:rotate(1turn) translate($rotRad/2) rotate(-1turn);
+  }
+}
+
+.recty {
+    filter: url(#filter);
+    fill: black;
+}
+
+
+// @include media-breakpoint-up(md) {
+  .tagKnobs {
+    width: 40vh;
+  }
+  .tagSelector {
+    width: $knobSize;
+    height: $knobSize;
+  }
+// }
+
+// @include media-breakpoint-down(md) {
+//   .tagKnobs {
+//     width: 50vw;
+//   }
+//   .tagSelector {
+//     width: $knobSize * 1.8;
+//     height: $knobSize * 1.8;
+//   }
+// }
+
+
+.tagKnobs {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-200%, 0%) scale(1.6);
+  transition: transform $swipe-time;
+}
+
+.tagKnobs .tag-selector-knobs {
+  transform: translate(0, 30%);
+  transition: transform $swipe-time;
+}
+
+.tagKnobs-slide {
+  transform: translate(0%, 0%) scale(1);
+}
+
+.tagKnobs-slide .tag-selector-knobs {
+  transform: translate(0%, 10%);
+}
+
+.tagSelector {
+  position: relative;
+  // top: 10vmin;
+  left: 10vmin;
+  // z-index: 99999;
+  margin-bottom: 10vh;
+  margin-right: 0;
+  // z-index: 1;
+}
+
+.tagSelectOuter{
+  border-radius: 50%;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 1;
+
+  transform: translate(-25%, -25%);
+}
+
+.tagSelectInner {
+  position: absolute;
+  top: $railThick;
+  left: $railThick;
+  width: 100% - 2 * $railThick;
+  height: 100% - 2 * $railThick;
+  border-radius: 50%;
+
+  animation-name: rainbow, rainbow-shadow;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.tagSelectInnerTitle {
+  $xOffset: $rotRad - $circleSize;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: $xOffset;
+  height: $xOffset;
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+  animation-name: rainbow-inset-shadow-md, rainbow;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.tagSelectCircle{
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: $knobSize / 2 - $circleSize /2 + $circleFix;
+  left: $knobSize/2 - $circleSize /2 + $circleFix;
+  border-radius: 50%;
+  width: $circleSize * $circlePerc;
+  height: $circleSize * $circlePerc;
+  // background: white;
+  // transform: translate(50%, 0%);
+  transform:rotate(0) translate($rotRad/2) rotate(0);
+}
+
+.cTop {
+  animation-name: rainbow, spin;
+  animation-duration: $rainbowTime, 10s;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: infinite;
+}
+
+.cBottom {
+  animation-name: rainbow-shadow-sm, spin;
+  animation-duration: $rainbowTime, 10s;
+  animation-timing-function: ease-in-out, linear;
+  animation-iteration-count: infinite;
+}
+
+.tagKnob {
+  width: 100%;
+  height: 100%;
+  position: default;
+}
+
+.tagSelectInnerTitleText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  overflow-wrap: break-word;
+  font-size: 1.2em;
+}
+
+.tagItem, .tagSelectInnerTitleText {
+  display: block;
+  position: absolute;
+  z-index: 10000;
+
+  text-align: center;
+}
+
+.tagSelectInnerTitleText svg {
+  transform: scale(1.5);
+
+ animation-name: rainbow-svg;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+}
+
+.tagItemButton, .tagSelectInnerTitleText {
+  animation-name: rainbow-text;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  font-weight: 900;
+  font-size: 1.7vmin;
+}
+
+.tagSelected {
+  animation-name: rainbow-text-glow-inset;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  color: $light-color;
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
