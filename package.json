@@ -6,13 +6,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "next build && next export && git add . && git commit  --allow-empty -m \"Deploy gh-pages\" && git push origin master",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@svgr/webpack": "^6.2.1",
+    "babel-plugin-transform-define": "^2.0.1",
     "bootstrap": "^5.1.3",
     "build-url": "^6.0.1",
     "fs": "^0.0.1-security",
