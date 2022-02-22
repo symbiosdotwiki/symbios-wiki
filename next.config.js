@@ -9,6 +9,7 @@ module.exports = {
       "/symbios-wiki": {page: "/"}
     }
   },
+  exportAssetPrefix: "next",
   assetPrefix: isProd ? '/symbios-wiki/' : '',
   webpack(config) {
     config.module.rules.push({
