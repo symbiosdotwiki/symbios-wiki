@@ -3,8 +3,11 @@
 
 module.exports = {
   reactStrictMode: true,
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
-   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
+  exportPathMap: function() {
+    return {
+      "/symbios-wiki": {page: "/"}
+    }
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
