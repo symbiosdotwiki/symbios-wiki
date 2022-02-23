@@ -8,7 +8,7 @@
     "build": "next build && next export -o build/ && touch build/.nojekyll",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build --dotfiles=true && git add . && git commit -m \"Auto Deploy\" && git push",
-   "start": "next start",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-markdown": "^8.0.0",
     "react-player": "^2.9.0",
+    "react-responsive-carousel": "^3.2.22",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "sass": "^1.49.8",

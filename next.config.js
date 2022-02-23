@@ -5,9 +5,12 @@ module.exports = {
   reactStrictMode: true,
   // distDir: 'build',
   exportPathMap: function() {
-    return {
-      "/symbios-wiki": {page: "/"}
+    if(isProd){
+      return {
+        "/symbios-wiki": {page: "/"}
+      }
     }
+    return {}
   },
   assetPrefix: isProd ? '/symbios-wiki/' : '',
   webpack(config) {

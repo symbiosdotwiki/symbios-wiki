@@ -14,8 +14,7 @@ import * as matter from 'gray-matter'
 import { getSC } from './helpers/SoundCloudAPI'
 import { getVimeo } from './helpers/VimeoAPI'
 
-
-const isBrowser = typeof window !== "undefined";
+const isBrowser = typeof window !== "undefined"
 
 
 function findCommonElements(arr1, arr2) {
@@ -35,7 +34,9 @@ class Portfolio extends Component {
   tagFilters = {}
   minPosts = 8
 
-  showIntro = false
+  showIntro = true
+  redirect = true
+  redirect_url = "https://www.instagram.com/symbios.wiki"
 
   introTime = 8
 
@@ -180,7 +181,12 @@ class Portfolio extends Component {
     })
     requestAnimationFrame(this.setTime)
     setTimeout(()=>{
-      this.setState({intro:false})
+      if(this.redirect && this.showIntro && isBrowser){
+        window.location.href = this.redirect_url
+      }
+      else{
+        this.setState({intro:false})
+      }
     }, this.showIntro ? this.introTime*1000 : 10)
   }
 

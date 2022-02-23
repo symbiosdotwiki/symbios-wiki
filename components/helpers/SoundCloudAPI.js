@@ -5,6 +5,7 @@ const SDK_GLOBAL = 'SC'
 
 export const scIF = "https://w.soundcloud.com/player/"
 export const scURL = "https://api.soundcloud.com/playlists/"
+export const scURLurl = "https://soundcloud.com/oembed?format=json&url="
 
 export var getSC = function(callback) {
   getSDK(SDK_URL, SDK_GLOBAL).then(SC => {
@@ -37,4 +38,19 @@ export var getSoundCloudImg = function(SC, iframe, sound, imgLoaded) {
         img.src = artwork_url
       })
     }})
+}
+
+export var getSoundCloudImg2 = function(sound_url, imgLoaded) {
+    fetch(scURLurl + sound_url, {
+      method: 'get',
+      cache: 'no-cache', 
+      mode: 'cors',
+    }).then(response => response.json())
+      .then(data => {
+        let img = new Image()
+        img.onload = function() {
+          imgLoaded(img)
+        }
+        img.src = data.thumbnail_url
+      })
 }

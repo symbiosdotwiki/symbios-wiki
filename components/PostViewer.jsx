@@ -7,11 +7,7 @@ import ReactPlayer from 'react-player'
 import BandcampPlayer from 'react-bandcamp'
 import { Col, Spinner } from 'react-bootstrap'
 
-import { getFlickrImg } from './helpers/FlickrAPI.js'
-import { getSoundCloudImg, scIF, scURL } from './helpers/SoundCloudAPI.js'
-import { getVimeoImg, viF } from './helpers/VimeoAPI.js'
-import { getYTImg } from './helpers/YouTubeAPI.js'
-import { getBCImg } from './helpers/BandcampAPI.js'
+import { getFlickrGallery } from './helpers/FlickrAPI.js'
 
 
 import { 
@@ -45,13 +41,19 @@ class PostViewer extends Component {
     const { content, data, img } = post
     const { loaded } = this.state
 
+    // console.log(post)
+
     let spinny = loaded || img
 
-    const { title, image, video, sound, bandcamp, iframe } = data
+    const { title, image, video, sound, bandcamp, iframe, photoset } = data
 
     let playerType = ''
     let ID = ''
     let playlist = false
+
+    if(photoset){
+          getFlickrGallery(photoset.id.split("/").pop(), '', ()=>{})
+    }
 
 
     if(video){

@@ -68,7 +68,7 @@ BandcampPlayer.defaultProps = {
   bgcol: 'ffffff',
   linkcol: '0687f5',
   merch: null,
-  tracklist: true,
+  tracklist: 'true',
   artwork: 'big',
   height: 'auto',
   width: 'auto',
