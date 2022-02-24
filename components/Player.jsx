@@ -39,10 +39,10 @@ class Player extends Component {
 	spinnerTime = 2
 
 	setLoaded = () => {
-		console.log("DONE")
-		this.setState({
-			loaded: true
-		})
+		setTimeout( () =>
+			this.setState({
+				loaded: true
+			}), 10)
 	}
 
 	constructor(props) {
@@ -52,6 +52,12 @@ class Player extends Component {
     this.firstTime = this.props.getTime()
 
   }
+
+  componentDidUpdate(prevProps) {
+	  if (prevProps.ID !== this.props.ID) {
+	    this.setState({loaded: false})
+	  }
+	}
 
   render(){
   	const { playerType, onReady, ID } = this.props
@@ -70,19 +76,20 @@ class Player extends Component {
   	// console.log(URL)
   	
   	return(
-  		<span>
+  		<div className="post-player">
 	  		<SymbiosSpinner 
 	        animDelay={animDelay}
 	        loaded={loaded}
 	        spinnerTime={spinnerTime}
 	        size={'50'}
 	      />
-	      <span className={"player-hidden " + (loaded ? "player-loaded" : '')}>{
+	      <div className={"player-iframe player-hidden " + (loaded ? "player-loaded" : '')}>{
 		      playerType == 'iframe' ?
 		        <iframe 
 		        	src={ID}
 		        	onLoad={setLoaded}
-		        	//{...this.props}
+		        	width='100%'
+		          height='100%'
 		        /> :
 		      playerType == 'bandcamp' ?
 		        <BandcampPlayer 
@@ -92,15 +99,18 @@ class Player extends Component {
 		          height="55vmin"
 		          bgcol="242626"
 		          onLoad={setLoaded}
-		          //{...this.props}
 		        /> :
 		      	<ReactPlayer 
 		          url={URL} 
 		          onReady={setLoaded}
-		          //{...this.props}
+		          controls={true}
+		          playing={true}
+		          width='100%'
+		          height='100%'
+		          loop={true}
 		        />
-		  	}</span>
-	  	</span>
+		  	}</div>
+	  	</div>
   	)
   }
 

@@ -180,6 +180,7 @@ class Portfolio extends Component {
       })
     })
     requestAnimationFrame(this.setTime)
+    console.log(this.redirect)
     setTimeout(()=>{
       if(this.redirect && this.showIntro && isBrowser){
         window.location.href = this.redirect_url
@@ -487,6 +488,7 @@ class Portfolio extends Component {
             animLength={animLength}
             menuClick={menuClick}
             animDelay={animDelay}
+            expanded={menu}
             // animLength={animLength}
           />
           </div>
@@ -499,19 +501,13 @@ class Portfolio extends Component {
           }
           style={postXY}
         >
-          <div className="post-shad-cont"><div className="post-shad"/></div>
           <div className="postViewer"/>
-          <button 
-            onClick={() => postClick(null)}
-            className="postBackButton"
-          > 
-            BACK 
-          </button>
           <PostViewer
             post={allPosts[postID]}
             getTime={getTime}
             animDelay={animDelay}
             animLength={animLength}
+            clickBack={postClick}
           />
         </div>
 

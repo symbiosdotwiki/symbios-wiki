@@ -232,6 +232,10 @@ $glow-color: hsl(10, 90%, 80%);
   @include rainbow('fill');
   @include rainbow-drop-shadow-90(.06);
 }
+@keyframes rainbow-text-lg {
+  @include rainbow('color');
+  @include rainbow-shadow(.25, 'text-shadow');
+}
 @keyframes rainbow-text {
   @include rainbow('color');
   @include rainbow-shadow(.1, 'text-shadow');

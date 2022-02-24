@@ -37,7 +37,7 @@ class PostViewer extends Component {
 
   render(){
     // const { img, shown } = this.state
-    const { post, animDelay, getTime } = this.props
+    const { post, animDelay, getTime, clickBack } = this.props
     const { content, data, img } = post
     const { loaded } = this.state
 
@@ -78,9 +78,11 @@ class PostViewer extends Component {
     // const { animDelay } = this
 
     return (
-      <div>
-        <div>
-          {data.title}
+      <div className="post-stuff">
+         
+
+        <div className="post-title-lg">
+          <span>{data.title}</span>
         </div>
 
         <div className="post-markdown">
@@ -99,6 +101,13 @@ class PostViewer extends Component {
           animDelay={animDelay}
           getTime={getTime}
         />
+
+        <button 
+            onClick={() => clickBack(null)}
+            className="postBackButton"
+          > 
+            BACK 
+          </button>
 
        {/* <iframe 
         style="border: 0; width: 350px; height: 470px;" 

@@ -43,3 +43,80 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
+
+$plusSize: 7vmin;
+.xPlus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $plusSize;
+  height: $plusSize;
+  transform: translate(-10%, 10%);
+}
+
+.plus-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+  // transition: all $fade-time ease-in;
+  // fill: white;
+  animation-name: rainbow-fill;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.plus-svg path {
+  transform-origin: center;
+  transition: .7s;
+}
+
+// $shad-amt: .18;
+$plusDisp: .9;
+.plus-shad, .plus-refl {
+
+  // animation-duration: $rainbowTime;
+  // animation-timing-function: ease-in-out;
+  // animation-iteration-count: infinite;
+  // animation-fill-mode: none;
+}
+
+.plus-shad {
+  animation-name: rainbow-fill-shad;
+  }
+
+  .plus-rot path {
+transform: rotate(135deg)
+  }
+
+.plus-shad path {
+  transform: translate($plusSize * $plusDisp, $plusSize * $plusDisp) rotate(0deg) ;
+}
+
+.plus-rot .plus-shad path {
+  transform: translate($plusSize * $plusDisp, $plusSize * $plusDisp) rotate(135deg) ;
+}
+
+
+.plus-refl {
+  animation-name: rainbow-fill-refl;
+  // transform: translate(10%, 10%);
+}
+
+.plus-refl path {
+  transform: translate($plusSize * $plusDisp * -1, $plusSize * $plusDisp * -1) rotate(0deg) ;
+}
+
+.plus-rot .plus-refl path {
+  transform: translate($plusSize * $plusDisp * -1, $plusSize * $plusDisp * -1) rotate(135deg) ;
+}
+
+.plus-shad path, .plus-refl path{
+  opacity: 1;
+  filter: blur($plusSize * $plusDisp);
+}
+

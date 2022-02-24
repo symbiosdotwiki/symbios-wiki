@@ -10,7 +10,7 @@ import { getFlickrImg } from './helpers/FlickrAPI.js'
 import { 
   getSoundCloudImg, scIF, scURL, getSoundCloudImg2 
 } from './helpers/SoundCloudAPI.js'
-import { getVimeoImg, viF } from './helpers/VimeoAPI.js'
+import { getVimeoImg, viF, getVimeoImg2 } from './helpers/VimeoAPI.js'
 import { getYTImg } from './helpers/YouTubeAPI.js'
 import { getBCImg } from './helpers/BandcampAPI.js'
 
@@ -108,52 +108,61 @@ class PostPreview extends Component {
 
     let img_type = null
     let img_id = null
-    if(typeof img_url == 'string'){
+    if(!img && typeof img_url == 'string'){
       if(img_url.indexOf('flickr') > -1){
-        img_url.split('/')[-1]
+        getFlickrImg(img_url, "Medium", (img) => this.imgLoaded(img))
       }
       else if(img_url.indexOf('vimeo') > -1){
-        
+        getVimeoImg2(
+          img_url, (img) => this.imgLoaded(img)
+        )
       }
       else if(img_url.indexOf('youtube') > -1){
-        
+        getYTImg(
+          img_url, (img) => this.imgLoaded(img)
+        )
       }
       else if(img_url.indexOf('soundcloud') > -1){
-        let s_url = img_url//.replace('https://', 'http://api.')
         getSoundCloudImg2(
-          s_url, (img) => this.imgLoaded(img)
+          img_url, (img) => this.imgLoaded(img)
         )
-        console.log("after SC")
+      }
+      else if(img_url.indexOf('soundcloud') > -1){
+        getBCImg(
+          bandcamp, (img) => this.imgLoaded(img)
+        )
       }
     }
     // console.log(img_id)
+    else if(!img){
+      if(image){
+        getFlickrImg(image.id, "Medium", (img) => this.imgLoaded(img))
+      }
+      else if(sound){
+        getSoundCloudImg(
+          SC, this.iRef.current, sound, (img) => this.imgLoaded(img)
+        )
+      }
+      else if(video && !video.youtube){
+        getVimeoImg(
+          video.id, (img) => this.imgLoaded(img)
+        )
+      }
+      else if(video && video.youtube){
+        getYTImg(
+          video, (img) => this.imgLoaded(img)
+        )
+      }
+      else if(bandcamp){
+        getBCImg(
+          bandcamp, (img) => this.imgLoaded(img)
+        )
+      }
+    }
 
-    // if(!img && image){
-    //   getFlickrImg(image.id, "Medium", (img) => this.imgLoaded(img))
-    // }
-    // else if(!img && sound){
-    //   getSoundCloudImg(
-    //     SC, this.iRef.current, sound, (img) => this.imgLoaded(img)
-    //   )
-    // }
-    // else if(!img && video && !video.youtube){
-    //   getVimeoImg(
-    //     video, (img) => this.imgLoaded(img)
-    //   )
-    // }
-    // else if(!img && video && video.youtube){
-    //   getYTImg(
-    //     video, (img) => this.imgLoaded(img)
-    //   )
-    // }
-    // else if(!img && bandcamp){
-    //   getBCImg(
-    //     bandcamp, (img) => this.imgLoaded(img)
-    //   )
-    // }
-    // else if(img){
-    //   this.setState({img: img})
-    // }
+    else if(img){
+        this.setState({img: img})
+      }
 
     setTimeout(()=>{
       this.setState({shown:true})
@@ -205,13 +214,13 @@ class PostPreview extends Component {
         <div className="post-title">
           {title}
         </div>
-        {//img ? '' : 
-          //sound ? 
+        {img ? '' : 
+          sound ? 
           <iframe 
             ref={this.iRef} 
             src={scIF + '?url=' + scURL + '123'}
             style={{'display':'block', 'visibility':'hidden'}}
-          /> //: ''
+          /> : ''
           // bandcamp ?
           // <iframe 
           //   ref={this.iRef} 

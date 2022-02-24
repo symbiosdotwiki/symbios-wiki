@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import SymbiosSVG from '../svg/symbios.svg'
-import SymbiosSpin from '../svg/symbios-spin.svg'
-
+// import SymbiosSpin from '../svg/symbios-spin.svg'
+import XPlus from './xPlus'
 
 class Header extends Component {
-
-  state = {
-    loaded: false
-  }
 
   animLength = 1
   firstTime = 0
@@ -18,23 +14,22 @@ class Header extends Component {
      this.animDelay = this.props.animDelay.bind(this)
   }
 
-  componentDidMount() {
-    // setTimeout(() => {
-    //   this.setState({loaded:true})
-    // }, 500)
-  }
-
   render(){
     const { animDelay } = this
-    const {menuClick, animLength } = this.props
-    const { loaded } = this.state
+    const {menuClick, animLength, expanded } = this.props
     return(
       <div 
         className="header"
         style={animDelay([animLength], 14)}
       >
 
-      <button onClick={menuClick}> FILTER </button>
+      {/*<button onClick={menuClick}> FILTER </button>*/}
+
+      <XPlus 
+        onClick={menuClick}
+        animDelay={animDelay}
+        expanded={expanded}
+      />
       
        <SymbiosSVG 
           className="symbios-svg-header"

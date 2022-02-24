@@ -18,11 +18,15 @@ var generateApiUrl = function(image, size) {
 }
 
 export var getFlickrImg = function(image, size, imgLoaded) {
-  fetch(generateApiUrl(image, size))
+  var parts = image.toString().split('/');
+  var lastSegment = parts.pop() || parts.pop()
+  // console.log(lastSegment)
+  let imageID = image.toString().indexOf('flickr') > -1 ? lastSegment : image
+  fetch(generateApiUrl(imageID, size))
   .then(response => response.json())
   .then((response) => {
     if(response.stat == 'fail'){
-      console.log(image)
+      console.log(imageID)
       console.log(response)
     }
     else{
