@@ -49,9 +49,9 @@ class PostViewer extends Component {
   }
 
   mdfp = [95, 80]
-  mdp = [85, 60]
+  mdp = [90, 60]
   mdfl = [85, 95]
-  mdl = [90, 60]
+  mdl = [85, 60]
 
   animLength = 1
   firstTime = 0
@@ -137,7 +137,8 @@ class PostViewer extends Component {
   getMaxDim = (swap=false) => {
     const {fullscreen} = this.state
     let fs = swap ? !fullscreen : fullscreen
-    if (window.matchMedia("(max-aspect-ratio: 5/4)").matches) {
+    // if (window.matchMedia("(max-aspect-ratio: 11/10)").matches) {
+    if (window.matchMedia("(max-width: 720)").matches) {
       // console.log("portrait")
       return {
         portrait: true,

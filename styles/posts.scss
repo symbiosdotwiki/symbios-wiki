@@ -211,20 +211,34 @@ $xSize: 6vmin;
 }
 
 
-.nextPostButton {
-  bottom: 2vmin;
-  right: 3.5vmin;
-  width: 7vw;
-  animation-name: rainbow-svg-symbios-sm;
+
+
+// @media screen and (min-width: 720) {
+  .nextPostButton {
+    bottom: 2vmin;
+    right: 3.5vmin;
+    width: 7vw;
+    animation-name: rainbow-svg-symbios-sm;
+  }
+
+  .prevPostButton {
+    bottom: 2vmin;
+    left: 2vmin;
+    width: 7vw;
+    transform: scaleX(-1);
+    animation-name: rainbow-svg-symbios-sm-180;
+  }
+// }
+
+
+@media screen and (max-width: 710px) {
+  .nextPostButton, .prevPostButton {
+    display: none !important;
+    // animation-name: none;
+    // transform: scale(0);
+  }
 }
 
-.prevPostButton {
-  bottom: 2vmin;
-  left: 2vmin;
-  width: 7vw;
-  transform: scaleX(-1);
-  animation-name: rainbow-svg-symbios-sm-180;
-}
 
 $carBtnW: 4vw;
 .nextCarButton {
@@ -256,22 +270,7 @@ $carBtnW: 4vw;
   transform: translate(49vw, -50%);
 }
 
-// .fullscreenButton {
-//   // top: 35vh;
-//   top: 35%;
-//   left: 2vmin;
-//   position: absolute;
-// }
-
-// .fullscreen .fullscreenButton {
-//   // top: 35vh;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(50vw, 50vh);
-//   position: absolute;
-// }
-
-@media only screen and (max-aspect-ratio: 5/4) {
+@media screen and (max-width: 710px) { //(max-aspect-ratio: 11/10) {
   .nextCarButton {
     top: 100%;
     transform: translate(45vw, 25%);
@@ -293,7 +292,7 @@ $carBtnW: 4vw;
     height: $xSize * 1.5;
     top: 100%;
     right: 50%;
-    transform: scale(1) translate(50%, 25%);
+    transform: scale(.85) translate(50%, 25%);
   }
 
 .fullscreen .xPlus {
@@ -317,4 +316,9 @@ $carBtnW: 4vw;
     width: auto;
     transform: scaleX(1) translate(45vw, 10%);
   }
+
+  // .post-markdown {
+  //   padding-top: 3%;
+  // }
 }
+

@@ -95,6 +95,7 @@ $symbios-small: 8vmin;
 
 // $shad-amt: .18;
 $plusDisp: .9;
+$plusT: 2.5rem;
 .plus-shad, .plus-refl {
 
   // animation-duration: $rainbowTime;
@@ -112,11 +113,13 @@ transform: rotate(135deg)
   }
 
 .plus-shad path {
-  transform: translate( calc($plusDisp*var(--header-width)), calc($plusDisp*var(--header-width))) rotate(0deg) ;
+  // transform: translate( calc($plusDisp*var(--header-width)), calc($plusDisp*var(--header-width))) rotate(0deg) ;
+  transform: translate( $plusT, $plusT ) rotate(0deg) ;
 }
 
 .plus-rot .plus-shad path {
-  transform: translate(calc($plusDisp*var(--header-width)), calc($plusDisp*var(--header-width))) rotate(135deg) ;
+  // transform: translate(calc($plusDisp*var(--header-width)), calc($plusDisp*var(--header-width))) rotate(135deg) ;
+  transform: translate( $plusT, $plusT  ) rotate(135deg) ;
 }
 
 
@@ -126,11 +129,13 @@ transform: rotate(135deg)
 }
 
 .plus-refl path {
-  transform: translate( calc(-1*$plusDisp*var(--header-width)), calc(-1*$plusDisp*var(--header-width)) ) rotate(0deg) ;
+  // transform: translate( calc(-1*$plusDisp*var(--header-width)), calc(-1*$plusDisp*var(--header-width)) ) rotate(0deg) ;
+  transform: translate( -$plusT, -$plusT  ) rotate(0deg) ;
 }
 
 .plus-rot .plus-refl path {
-  transform: translate( calc(-1*$plusDisp*var(--header-width)), calc(-1*$plusDisp*var(--header-width)) ) rotate(135deg) ;
+  // transform: translate( calc(-1*$plusDisp*var(--header-width)), calc(-1*$plusDisp*var(--header-width)) ) rotate(135deg) ;
+  transform: translate( -$plusT, -$plusT  ) rotate(135deg) ;
 }
 
 .plus-shad , .plus-refl {
