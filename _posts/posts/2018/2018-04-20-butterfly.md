@@ -10,4 +10,5 @@ show_url: false
 show_blurb: false
 video:
   id: 266772352
+hide: true
 ---

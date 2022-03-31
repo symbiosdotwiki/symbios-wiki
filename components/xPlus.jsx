@@ -13,8 +13,9 @@ class XPlus extends Component {
 
   constructor(props){
     super(props)
-    // this.firstTime = this.props.getTime()
+    this.firstTime = this.props.getTime()
     this.animDelay = this.props.animDelay.bind(this)
+    // console.log(this.firstTime)
   }
 
   componentDidMount() {
@@ -24,13 +25,13 @@ class XPlus extends Component {
   }
 
   render(){
-    const { onClick, expanded } = this.props
+    const { onClick, expanded, animLength } = this.props
     const { animDelay } = this
-    const { loaded, animLength } = this.state
+    const { loaded } = this.state
     return(
       <div 
         className={"xPlus " + (expanded ? 'plus-rot' : '')}
-        style={animDelay([animLength], 14)}
+        style={animDelay([animLength])}
         onClick={onClick}
       >
         

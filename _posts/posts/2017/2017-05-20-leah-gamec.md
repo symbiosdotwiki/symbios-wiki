@@ -14,7 +14,8 @@ showmore: true
 image:
   id: 38645005976
 photoset:
-  id: 72157666862983199
+  id: "72157666862983199"
+hide: true
 ---
 
 Working from a mood board, I rendered out various speculative renders of what the museum space would like during th exhibition.

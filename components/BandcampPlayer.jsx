@@ -34,14 +34,17 @@ class BandcampPlayer extends Component {
   }
 
   render() {
-    const { title, onLoad } = this.props;
-    const style = this.getStyles();
+    const { title, onLoad, style } = this.props;
+    const getStyle = this.getStyles();
     const src = this.getUrl();
     return (
       <iframe
         title={title}
-        style={style}
-        className="embed-responsive-item"
+        style={{
+          ...style,
+          ...getStyle
+        }}
+        className="bandcamp-player"
         src={src}
         seamless
         onLoad={onLoad}

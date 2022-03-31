@@ -12,4 +12,5 @@ blurb: "A stormy cloud looms over the landscape. Made using Houdini, C4D, and Oc
 showmore: false
 image:
   id: 29192865892
+hide: true
 ---

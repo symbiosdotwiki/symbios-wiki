@@ -1,0 +1,52 @@
+@import "./neumorph"; 
+
+.info-stuff {
+	width: 90vw;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	position: absolute;
+	top: 0;
+	left: 10vw;
+
+	font-size: 1.3em;
+
+	padding-top: 6%;
+	padding-bottom: 6%;
+	padding-right: 7.5vw;
+
+	animation-name: rainbow-text;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.info-white {
+	// color: #f0f0f0 !important;
+}
+
+
+
+.info-stuff h1 strong {
+	color: #eee !important;
+}
+
+.info-stuff strong {
+	color: #ccc;
+}
+
+// .info-stuff a:link {
+// 	color: $light-color;
+// }
+
+// .info-stuff a:visited {
+//   color: green;
+// }
+
+// .info-stuff a:hover {
+//   color: hotpink;
+// }
+
+// .info-stuff a:active {
+//   color: blue;
+// }

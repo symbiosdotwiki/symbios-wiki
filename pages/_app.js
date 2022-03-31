@@ -10,7 +10,11 @@ import '../styles/tag-select-simple.scss'
 
 import '../styles/posts.scss'
 
+import '../styles/info.scss'
+import '../styles/scroll.scss'
 import '../styles/main.scss'
+
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 
 function MyApp({ Component, pageProps }) {

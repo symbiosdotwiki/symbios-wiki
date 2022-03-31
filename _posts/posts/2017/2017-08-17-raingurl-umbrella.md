@@ -10,7 +10,7 @@ client: "Yaeji / GODMODE"
 image:
   id: 26895116849
 photoset:
-  id: 72157690151037715
+  id: "72157690151037715"
 video:
   id: _3T8KznhThQ
   youtube: true

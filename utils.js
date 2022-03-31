@@ -13,14 +13,17 @@ export function getAllPosts(fields = []) {
         // console.log(absPath)
         if (fs.statSync(absPath).isDirectory()) 
             return throughDirectory(absPath)
-        else if(path.extname(absPath) == '.md')
+        else if(path.extname(absPath) == '.md'){
+            // console.log(absPath)
             return mdFiles.push(absPath)
+        }
     });
   }
   throughDirectory(mdPath)
 
-  const mdContent = mdFiles.map(file => {
+  let mdContent = mdFiles.map(file => {
     let mdCont = matter(fs.readFileSync(file, 'utf8'))
+    // console.log(mdCont)
     delete mdCont.orig
     return ({
       ...mdCont,
@@ -28,9 +31,20 @@ export function getAllPosts(fields = []) {
     })
   })
 
+  mdContent = mdContent.filter(file => {
+    return file.data.hide ? false : true
+  })
+
   mdContent.sort((a, b) => b.filename.localeCompare(a.filename))
 
-  // console.log(mdContent)
+  // console.log('\nHIII')
+  let mainpath = path.join(process.cwd(), '_posts/main.md')
+  // console.log(mainpath)
+  let mainFile = matter(fs.readFileSync(mainpath, 'utf8'))
+  delete mainFile.orig
+  // console.log(mainFile)
+
+  // console.log(mdContent.filter((a,b) => b.filename=='main'))
 
   let tagsLists = {}
   let tags = {}
@@ -61,7 +75,7 @@ export function getAllPosts(fields = []) {
     tagFilters[tagType] = []
   })
 
-  // console.log(mdContent)
+  console.log(tags)
   // console.log(tagsLists)
   // console.log(tags)
   // console.log(tagFilters)
@@ -69,6 +83,7 @@ export function getAllPosts(fields = []) {
   const items = {}
 
   return {
+    "mainFile" : mainFile,
     "allPosts" : mdContent,
     "tagsLists" : tagsLists,
     "tagFilters" : tagFilters,

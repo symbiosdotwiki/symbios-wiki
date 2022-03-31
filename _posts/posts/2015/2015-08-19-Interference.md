@@ -2,7 +2,7 @@
 layout: media
 title: "Isomov - Interference LP"
 tags:
-  categories: audio
+  categories: aural
 blurb: "Isomov - Interference LP"
 sound:
   type: playlists

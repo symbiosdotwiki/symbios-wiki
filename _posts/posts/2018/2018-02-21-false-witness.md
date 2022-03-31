@@ -12,8 +12,8 @@ blurb: "EP artwork utilizing various GLSL shaders."
 showmore: true
 image:
   id: 40825663805
+video:
+  id: 266772627
 ---
 
 Made utilizing various algorithms such as pixel sorting and texture breathing, rendered in Octane.
-
-{% vimeo 266772627 %}

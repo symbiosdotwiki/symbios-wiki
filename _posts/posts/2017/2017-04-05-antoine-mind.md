@@ -13,7 +13,7 @@ showmore: true
 image:
   id: 38644560506
 photoset:
-  id: 72157690222850445
+  id: "72157690222850445"
 ---
 
 I worked with Antoine to transform a set of drawing into hyper-realistic renders of 3D Roman comics.

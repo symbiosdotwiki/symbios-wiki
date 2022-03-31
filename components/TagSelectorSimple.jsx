@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { FaBeer } from 'react-icons/fa'
+import _ from "lodash"
 
 class TagSelectorSimple extends Component {
 
@@ -36,7 +37,10 @@ class TagSelectorSimple extends Component {
     const { tags, tagSelect, tagType, getTime } = this.props
     const { animDelay, prevTagList } = this
     const tagList = tags[tagType] || {}
-    const numItems = Object.keys(tagList).length
+
+    let tagListFilter = _.omit(tagList, 'NONE')
+
+    const numItems = Object.keys(tagListFilter).length
 
     const animLength = parseFloat(
       getComputedStyle(document.body).animationDuration
@@ -49,8 +53,8 @@ class TagSelectorSimple extends Component {
       <div 
         className='tagSelector'
       >
-        {Object.keys(tagList).map((tag, idx) => {
-          const setBack = prevTagList[tag] != tagList[tag]
+        {Object.keys(tagListFilter).sort().map((tag, idx) => {
+          const setBack = prevTagList[tag] != tagListFilter[tag]
           if(setBack){
             this.tagStyles[tag] = animDelay([animLength], setBack)
           }
@@ -61,13 +65,13 @@ class TagSelectorSimple extends Component {
               className='tagItem'
               key={tag}
               style={{
-                top: ((idx + 1) / (numItems + 1) * 100).toString() + 'vh',
+                top: ((idx + 1) / (numItems + 1) * 100).toString() + '%',
                 ...animDelay([animLength])
               }}
             >
               <button 
                 onClick={() => tagSelect(tag, tagType)}
-                className={"tagItemButton" + (tagList[tag] ? ' tagSelected' : '')}
+                className={"tagItemButton" + (tagListFilter[tag] ? ' tagSelected' : '')}
                 style={this.tagStyles[tag]}
               >
                 {tag}

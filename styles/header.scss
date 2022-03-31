@@ -1,5 +1,19 @@
 @import "./neumorph";
 
+$symbios-small: 8vmin;
+
+:root {
+    --header-width: 8vmin;
+}
+
+
+@media only screen and (max-width: 600px) {
+    :root {
+      --header-width: 12vmin;
+    }
+  }
+
+
 .header, .header button {
 	position: absolute;
 	top: 0;
@@ -14,13 +28,17 @@
 
 .header-cont{
   position: absolute;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   transition: all $swipe-time;
   transform: translate(0,0);
 }
 
 .header-cont-slide {
-  transform: translate(24.5vw, 0);
+  transform: translate(24vw, 0);
+  @media only screen and (max-width: 600px) {
+    transform: translate(20vw, 0);
+  }
 }
 
 .header button {
@@ -32,11 +50,11 @@
   bottom: 0;
   left: 0;
   width: auto;
-  height: 6vh;
+  height: var(--header-width);
 
-  transform-origin: 6vh 0px;
+  transform-origin: var(--header-width) 0px;
 
-  transform: rotate(-90deg) translate(0, -6vh);
+  transform: rotate(-90deg) translate(0, calc(var(--header-width) * -1));
 
   animation-name: rainbow-svg-symbios-sm-90;
   animation-duration: $rainbowTime;
@@ -44,13 +62,13 @@
   animation-iteration-count: infinite;
 }
 
-$plusSize: 7vmin;
-.xPlus {
+// $plusSize: 7vmin;
+.header .xPlus {
   position: absolute;
   top: 0;
   left: 0;
-  width: $plusSize;
-  height: $plusSize;
+  width: calc(.9*var(--header-width));
+  height: calc(.9*var(--header-width));
   transform: translate(-10%, 10%);
 }
 
@@ -94,11 +112,11 @@ transform: rotate(135deg)
   }
 
 .plus-shad path {
-  transform: translate($plusSize * $plusDisp, $plusSize * $plusDisp) rotate(0deg) ;
+  transform: translate( calc($plusDisp*var(--header-width)), calc($plusDisp*var(--header-width))) rotate(0deg) ;
 }
 
 .plus-rot .plus-shad path {
-  transform: translate($plusSize * $plusDisp, $plusSize * $plusDisp) rotate(135deg) ;
+  transform: translate(calc($plusDisp*var(--header-width)), calc($plusDisp*var(--header-width))) rotate(135deg) ;
 }
 
 
@@ -108,15 +126,16 @@ transform: rotate(135deg)
 }
 
 .plus-refl path {
-  transform: translate($plusSize * $plusDisp * -1, $plusSize * $plusDisp * -1) rotate(0deg) ;
+  transform: translate( calc(-1*$plusDisp*var(--header-width)), calc(-1*$plusDisp*var(--header-width)) ) rotate(0deg) ;
 }
 
 .plus-rot .plus-refl path {
-  transform: translate($plusSize * $plusDisp * -1, $plusSize * $plusDisp * -1) rotate(135deg) ;
+  transform: translate( calc(-1*$plusDisp*var(--header-width)), calc(-1*$plusDisp*var(--header-width)) ) rotate(135deg) ;
 }
 
-.plus-shad path, .plus-refl path{
+.plus-shad , .plus-refl {
   opacity: 1;
-  filter: blur($plusSize * $plusDisp);
+  // filter: blur(calc($plusDisp*var(--header-width)));
+  filter: blur(.12rem);
 }
 

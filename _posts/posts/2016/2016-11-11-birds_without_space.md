@@ -11,7 +11,7 @@ show_blurb: true
 video:
   id: 190726475
 photoset: 
-  id: 72157674981412101
+  id: "72157674981412101"
 ---
 
 Inspired by Brancusi's infamous "Bird In Space", [@birds_without_space](https://www.instagram.com/birds_without_space/) represents the 9 most "evolutionarily distinct and globally endangered" avian species in the world due to human-related habitat loss. (You can check out [edgeofexistence.org](http://www.edgeofexistence.org/birds/) for their complete list of species). The accompanying video piece seeks to explore the banality of such ecological horrors by flattening the traditional sculpture into a 3D render synthesizing some the largest contributors of habitat loss for these birds.

@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from "next/head"
+import Link from "next/link"
 // import Poprt from 'next/image'
 // import styles from '../styles/Home.module.css'
 
@@ -12,13 +13,16 @@ export default function Home({ allPosts }) {
   // console.log(allPosts)
   return (
     <>
-      <Head>
+ <Head>
+        <title>SYMBIOS.WIKI</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link
           href="https://fonts.googleapis.com/css2?family=Space+Mono&display=optional"
           rel="stylesheet"
         />
       </Head>
-      <Portfolio {...allPosts}/>
+        <Portfolio {...allPosts}/>
     </>
   )
 }
@@ -29,5 +33,4 @@ let allPosts = getAllPosts()
 return {
     props: { 'allPosts': allPosts },
   }
-
 }

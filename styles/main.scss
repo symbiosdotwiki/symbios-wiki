@@ -16,6 +16,10 @@
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.main-cont {
+  height: 100%;
+}
+
 #turbFilter {
   display: none;
   width: 0;
@@ -42,6 +46,22 @@ a {
   text-decoration: none;
 }
 
+a:link {
+  color: $light-color;
+}
+
+a:visited {
+  color: $light-color;
+}
+
+a:hover {
+  color: $light-color;
+}
+
+a:active {
+  color: $light-color;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -53,7 +73,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 28px;
+  width: min(4vw, 28px);
   margin:0;
 }
 
@@ -117,7 +137,8 @@ button, input[type="submit"], input[type="reset"] {
   transform: translate(0, 0) scale(1);
   transform-origin: 0vw 50vh;
   overflow-y: scroll;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
 }
 
 .port-shad-cont{
@@ -125,7 +146,8 @@ button, input[type="submit"], input[type="reset"] {
   top: 0;
   right: 0;
   width: 5vh;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
     z-index: -9999;
   filter: url(#filter) ;
   overflow: hidden;
@@ -148,7 +170,8 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .portfolio {
-  min-height: 101vh;
+  // min-height: 101vh;
+  height: 101%;
   // filter: url(#filter);
 }
 
@@ -159,7 +182,8 @@ button, input[type="submit"], input[type="reset"] {
 .ox-cont {
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   transform: translate(0, 0) scale(1), translate3d(0,0,0);
   position:absolute;
   top: 0;
@@ -198,7 +222,8 @@ button, input[type="submit"], input[type="reset"] {
 
 .max-cont {
   width: 100vw;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   overflow: hidden;
   position: absolute;
 
@@ -207,7 +232,8 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .postViewerContainer {
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   width: 100vw;
   // z-index: -10000;
   position: absolute;
@@ -223,7 +249,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .zooming {
-  pointer-events: none;
+  // pointer-events: none;
 }
 
 .zooming .port-shad-cont {
@@ -238,7 +264,8 @@ button, input[type="submit"], input[type="reset"] {
   }
 
 .infoViewerContainer {
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   width: 100vw;
   // z-index: -10000;
   position: absolute;
@@ -251,13 +278,6 @@ button, input[type="submit"], input[type="reset"] {
   .infoViewer-slide {
     transform: translate(0, 0);
   }
-
-// @include media-breakpoint-down(md) {
-//   .portfolio-cont-slide {
-//     transform: translate(60vw, -30vh) scale(.4);
-//     height: (100/.4) * 1vh;
-//   }
-// }
 
 
 .TagSelector{

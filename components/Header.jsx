@@ -16,24 +16,27 @@ class Header extends Component {
 
   render(){
     const { animDelay } = this
-    const {menuClick, animLength, expanded } = this.props
+    const {menuClick, animLength, expanded, infoClick, getTime } = this.props
     return(
       <div 
         className="header"
-        style={animDelay([animLength], 14)}
+        style={animDelay([animLength])}
       >
 
       {/*<button onClick={menuClick}> FILTER </button>*/}
 
       <XPlus 
         onClick={menuClick}
-        animDelay={animDelay}
+        animDelay={this.props.animDelay}
         expanded={expanded}
+        getTime={getTime}
+        animLength={animLength}
       />
       
        <SymbiosSVG 
           className="symbios-svg-header"
           style={animDelay([animLength])}
+          onClick={infoClick}
         />
       </div>
     )

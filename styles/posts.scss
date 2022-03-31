@@ -5,7 +5,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  // height: 100%;
+  min-height: -webkit-fill-available;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   animation-name: rainbow-text;
   animation-duration: $rainbowTime;
@@ -13,11 +16,18 @@
   animation-iteration-count: infinite;
 }
 
+.fullscreen {
+  overflow-y: hidden;
+}
+
 .post-title-lg {
   position: absolute;
-  top: 3vh;
-  left: 10vw;
-  font-size: 6vh;
+  // top: 3vh;
+  left: 50vw;
+  transform: translate(-50%, 0);
+  text-align: center;
+  // font-size: 6vh;
+  width: 80vw;
 
   color: white;
 
@@ -35,37 +45,80 @@
   position: absolute;
   position: absolute;
   width: 80%;
-  top: 77vh;
+  // top: 77vh;
+  // top: 77%;
   left: 10vw;
   font-size: 2vh;
 
   color: white;
-
+  text-align: justify;
   
 }
 
-.player-hidden iframe {
+.player-hidden {
   // visibility: hidden;
   opacity: 0;
-  transition: 1s;
+  transition: .33s;
 }
 
 
-.player-loaded iframe {
+.player-loaded {
   opacity: 1;
   // visibility: visible;
-  transition: 1s;
+  transition: .33s;
 }
 
-.post-player {
-  position: fixed;
+.post-player-div, .post-carousel {
+  position: absolute;
   left: 50%;
-  top: 14vh;
+  // top: 14vh;
+  top: 14%;
   width: 80vw;
-  height: 60vh;
+  // height: 60vh;
+  height: 60%;
 
   transform: translate(-50%, 0);
 
+  // transition: .5s;
+
+}
+
+.fullscreen .post-player-div {
+  width: 90vw;
+  height: 100%;
+
+  // top: 50vh;
+  top: 50%;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
+
+.fullscreen-cover {
+  // background-color: rgba(0, 0, 0, .0001); 
+  // background: black;
+  position:absolute;
+  width: 100vw;
+  height: 100%;
+  opacity: 0;
+  transition: .5s;
+  visibility: hidden;
+
+  animation-name: rainbow-bg;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.fullscreen .fullscreen-cover {
+  // background-color: rgba(0, 0, 0, .9999);
+  opacity: 1;
+  transition: .25s;
+  visibility: visible;
+}
+
+.post-player {
+  width: 100%;
+  height: 100%;
 }
 
 .player-iframe {
@@ -80,13 +133,15 @@
 // }
 
 // .player-iframe iframe {
-  animation-name: rainbow-shadow;
-  animation-duration: $rainbowTime;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+ 
 }
 
-.player-iframe iframe{
+.post-player img {
+  width: 100%;
+  height: 100%;
+}
+
+.player-wrapper {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -94,17 +149,172 @@
   transform: translate(-50%, -50%);
 }
 
-.postBackButton {
-  // font-size: 6vh;
+.player-iframe iframe, .post-player img {
   position: absolute;
-  top: 2vmin;
-  left: 2vmin;
-//   // z-index: 99999;
-// }
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.player-iframe, .post-player img {
+   animation-name: rainbow-shadow;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.postButton{
+    position: fixed;
+
+    fill: black;
+
+    opacity: 1;
+    transition: opacity .25s;
 
 // .postBackButton button {
   animation-name: rainbow-text;
   animation-duration: $rainbowTime;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
+}
+
+.hidden{
+  transition: opacity .25s;
+}
+
+.postBackButton {
+  // font-size: 6vh;
+  top: 2vmin;
+  left: 2vmin;
+//   // z-index: 99999;
+// }
+  width: 7.5vmin;
+  animation-name: rainbow-svg-symbios-sm;
+
+}
+
+$xSize: 6vmin;
+.post-stuff .xPlus {
+  position: absolute;
+  top: 0%;
+  right: 50%;
+  width: $xSize;
+  height: $xSize;
+  transform: translate(47vw, 0);
+}
+
+.fullscreen .xPlus {
+  top: 0%;
+  right: 50%;
+  transform: scale(.95) translate(52vw, 0);
+}
+
+
+.nextPostButton {
+  bottom: 2vmin;
+  right: 3.5vmin;
+  width: 7vw;
+  animation-name: rainbow-svg-symbios-sm;
+}
+
+.prevPostButton {
+  bottom: 2vmin;
+  left: 2vmin;
+  width: 7vw;
+  transform: scaleX(-1);
+  animation-name: rainbow-svg-symbios-sm-180;
+}
+
+$carBtnW: 4vw;
+.nextCarButton {
+  top: 50%;
+  right: 50%;
+  position: absolute;
+  width: $carBtnW;
+  transform: translate(47vw, -50%);
+  animation-name: rainbow-svg-symbios-md;
+}
+
+.prevCarButton {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: $carBtnW;
+  transform: scaleX(-1) translate(47vw, -50%);
+  animation-name: rainbow-svg-symbios-md-180;
+}
+
+.fullscreen .prevCarButton {
+  width: .9*$carBtnW;
+  transform: scaleX(-1) translate(48vw, -50%);
+}
+
+.fullscreen .nextCarButton {
+  // height: $xSize * 1.3;
+  width: .9*$carBtnW;
+  transform: translate(49vw, -50%);
+}
+
+// .fullscreenButton {
+//   // top: 35vh;
+//   top: 35%;
+//   left: 2vmin;
+//   position: absolute;
+// }
+
+// .fullscreen .fullscreenButton {
+//   // top: 35vh;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(50vw, 50vh);
+//   position: absolute;
+// }
+
+@media only screen and (max-aspect-ratio: 5/4) {
+  .nextCarButton {
+    top: 100%;
+    transform: translate(45vw, 25%);
+    // right: 0;
+    height: $xSize * 1.5;
+    width: auto;
+  }
+
+  .prevCarButton {
+    top: 100%;
+    transform: scaleX(-1) translate(45vw, 25%);
+    // left: 0;
+    height: $xSize * 1.5;
+    width: auto;
+  }
+
+  .post-stuff .xPlus {
+    width: $xSize * 1.5;
+    height: $xSize * 1.5;
+    top: 100%;
+    right: 50%;
+    transform: scale(1) translate(50%, 25%);
+  }
+
+.fullscreen .xPlus {
+    top: 100%;
+    right: 50%;
+    height: $xSize * 1.3;
+    width: $xSize * 1.3;
+    transform: scale(1) translate(50%, 10%);
+  }
+
+  .fullscreen .prevCarButton {
+    top: 100%;
+    height: $xSize * 1.3;
+    width: auto;
+    transform: scaleX(-1) translate(45vw, 10%);
+  }
+
+  .fullscreen .nextCarButton {
+    top: 100%;
+    height: $xSize * 1.3;
+    width: auto;
+    transform: scaleX(1) translate(45vw, 10%);
+  }
 }

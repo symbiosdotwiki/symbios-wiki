@@ -44,3 +44,15 @@ export var getVimeoImg2 = function(video, imgLoaded) {
       img.src = data.thumbnail_url
     })
 }
+
+export var getVimeoImgRat = function(video, dataLoaded) {
+  // console.log(video)
+  fetch(vIMG + video, {
+    mode: 'cors',
+    method: 'get',
+  }).then(response => response.json())
+    .then(data => {
+      // console.log(data)
+        dataLoaded(data)
+    })
+}

@@ -10,4 +10,5 @@ share: false
 show_url: false
 image:
   id: 32500494947
+hide: true
 ---

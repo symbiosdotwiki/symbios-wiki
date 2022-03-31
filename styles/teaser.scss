@@ -93,7 +93,8 @@ $sblur: 1rem;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   width: 100vw;
   overflow: hidden;
   z-index: -998;
@@ -106,12 +107,16 @@ $sblur: 1rem;
   animation-iteration-count: infinite;
 }
 
-.row {
+.portfolio-row {
   padding-top: 20px;
   padding-bottom: 60px;
-  padding-left: 10vh;
-  padding-right: 10vh;
+  padding-left: 12vmin;
+  padding-right: 5vmin;
   overflow-x: hidden;
+
+  @media only screen and (max-width: 600px) {
+    padding-left: 18vmin;
+  }
 }
 
 .infinite-scroll-component {

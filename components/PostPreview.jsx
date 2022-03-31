@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown"
 import ReactPlayer from 'react-player'
 import { Col, Spinner } from 'react-bootstrap'
 
-import { getFlickrImg } from './helpers/FlickrAPI.js'
+import { getFlickrImg, getFlickrGalleryPrev } from './helpers/FlickrAPI.js'
 import { 
   getSoundCloudImg, scIF, scURL, getSoundCloudImg2 
 } from './helpers/SoundCloudAPI.js'
@@ -31,15 +31,26 @@ const spinnerTime = 2
 
 class SquareImg extends Component {
 
+  constructor(props) {
+    super(props)
+    this.animDelay = this.props.animDelay.bind(this)
+    this.firstTime = this.props.getTime()
+  }
+
   render(){
-    const { img, data, animDelay, animLength, ID, postClick } = this.props
+    const { 
+      img, data, animLength, ID, postClick, getTime,
+    } = this.props
+    const {animDelay} = this
     // if(img)
       return (
         <span
           onClick={(e) => postClick(e, ID)}
         >
             <SymbiosSpinner 
-              animDelay={animDelay}
+               animDelay={this.props.animDelay}
+              animLength={animLength}
+              getTime={getTime}
               loaded={img}
               spinnerTime={spinnerTime}
               size={'1'}
@@ -59,7 +70,8 @@ class SquareImg extends Component {
                     backgroundImage: 'url(\"' + img.src + '\")',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center', 
-                    backgroundRepeat: 'no-repeat'
+                    backgroundRepeat: 'no-repeat',
+                    ...animDelay([animLength]),
                   }}
                 /> : ''
               }
@@ -101,7 +113,8 @@ class PostPreview extends Component {
   componentDidMount() {
     const { content, data, img, SC, Vimeo } = this.props
     const { 
-      title, image, video, audio, sound, bandcamp, img_url 
+      title, image, video, audio, sound, bandcamp, img_url,
+      photoset
     } = data
 
     // console.log(SC)
@@ -127,7 +140,7 @@ class PostPreview extends Component {
           img_url, (img) => this.imgLoaded(img)
         )
       }
-      else if(img_url.indexOf('soundcloud') > -1){
+      else if(img_url.indexOf('bandcamp') > -1){
         getBCImg(
           bandcamp, (img) => this.imgLoaded(img)
         )
@@ -138,9 +151,18 @@ class PostPreview extends Component {
       if(image){
         getFlickrImg(image.id, "Medium", (img) => this.imgLoaded(img))
       }
+      else if(photoset){
+        getFlickrGalleryPrev(
+          photoset.id, (img) => this.imgLoaded(img)
+        )
+      }
       else if(sound){
-        getSoundCloudImg(
-          SC, this.iRef.current, sound, (img) => this.imgLoaded(img)
+        // getSoundCloudImg(
+        //   SC, this.iRef.current, sound, (img) => this.imgLoaded(img)
+        // )
+        // console.log(sound)
+        getSoundCloudImg2(
+          sound.url, (img) => this.imgLoaded(img)
         )
       }
       else if(video && !video.youtube){
@@ -195,7 +217,7 @@ class PostPreview extends Component {
         md={6}
         lg={4}
         xl={3}
-        className="post-teaser"
+        className="post-teaser noselect"
         style={animDelay([animLength])}
         ref={this.imgRef} 
       >
@@ -205,16 +227,20 @@ class PostPreview extends Component {
           <SquareImg 
             data={data}
             img={img}
-            animDelay={animDelay}
-            animLength={animLength}
+            animDelay={this.props.animDelay}
+              animLength={animLength}
+              getTime={getTime}
             postClick={postClick}
             ID={ID}
           />
         </div>
-        <div className="post-title">
+        <div 
+          className="post-title"
+          style={animDelay([animLength])}
+        >
           {title}
         </div>
-        {img ? '' : 
+        {/*{img ? '' : 
           sound ? 
           <iframe 
             ref={this.iRef} 
@@ -228,7 +254,7 @@ class PostPreview extends Component {
           //   style={{'display':'block', 'visibility':'hidden'}}
           // /> : ''
           // <BandcampPlayer album={bandcamp.id} /> : ''
-        }
+        }*/}
       </Col>
     )
   }

@@ -12,6 +12,8 @@ blurb: "Render utilizing multi-scale Turing pattern and optical flow GLSL shader
 showmore: true
 image:
   id: 39917210580
+video:
+  id: 266772352
 ---
 
 Wing textures made using a custom sound-reactive multi-scale turing pattern GLSL shader patch within Touch Designer, aura made using a custom optical flow GLSL patch within TD as well.

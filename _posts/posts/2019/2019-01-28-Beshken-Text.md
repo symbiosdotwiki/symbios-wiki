@@ -11,4 +11,5 @@ share: false
 show_url: false
 video:
   id: 325909596
+hide: true
 ---

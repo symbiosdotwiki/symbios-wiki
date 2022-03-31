@@ -1,5 +1,5 @@
-$h1: 12px;
-$blur1: 22px;
+$h1: .5rem;
+$blur1: 1.2rem;
 $colLight: hsl(50, 0, 100);
 $colDark: #9ca4a4;
 
@@ -9,8 +9,8 @@ $light-color: hsl(10, 90, 70);
 $font-color: $light-color;
 
 $sat: 0;
-$shadSat: 10;
-$lightSat: 60;
+$shadSat: 20;
+$lightSat: 70;
 $val: 87;
 $valDelta: 10;
 $valDark: $val - 3*$valDelta;
@@ -36,6 +36,10 @@ $glow-color: hsl(10, 90%, 80%);
 .saturation {
   // mix-blend-mode: saturation;
   z-index: -6;
+}
+
+html {
+  font-size: 100%;
 }
 
 // .hidden-neu {
@@ -126,8 +130,10 @@ $glow-color: hsl(10, 90%, 80%);
     #{$i / $hueSteps * 100%} {
       $hh: rampUpDown($i, $hueMin, $hueMax, $hueSteps);
       #{$prop}: 
-        $h1*$amt $h1*$amt $blur1*abs($amt) hsl($hh, $shadSat, $valDark), 
-        -1*$h1*$amt -1*$h1*$amt $blur1*abs($amt) hsl($hh, $lightSat, $valLight),
+        $h1*$amt $h1*$amt $blur1*abs($amt) 
+          hsl($hh, $shadSat, $valDark), 
+        -1*$h1*$amt -1*$h1*$amt $blur1*abs($amt) 
+          hsl($hh, $lightSat, $valLight),
         0 0 $blur1*abs($amt) $gcol,
         0 0 $blur1*abs($amt)*2 $gcol,
         0 0 $blur1*abs($amt)*4 $gcol;
@@ -143,38 +149,71 @@ $glow-color: hsl(10, 90%, 80%);
         0 0 $blur1*abs($amt) $gcol,
         0 0 $blur1*abs($amt)*2 $gcol,
         0 0 $blur1*abs($amt)*4 $gcol,
-        inset $h1*$amt $h1*$amt $blur1*abs($amt) hsl($hh, $shadSat, $valDark), 
-        inset -1*$h1*$amt -1*$h1*$amt $blur1*abs($amt) hsl($hh, $lightSat, $valLight);
+        inset $h1*$amt $h1*$amt $blur1*abs($amt) 
+          hsl($hh, $shadSat, $valDark), 
+        inset -1*$h1*$amt -1*$h1*$amt $blur1*abs($amt) 
+          hsl($hh, $lightSat, $valLight);
         
     }
   }
 }
 
 
-@mixin drop-shadow($amt) {
+@mixin drop-shadow($amt, $omult: 2) {
   filter: 
-    drop-shadow( $h1*$amt*3 $h1*$amt*3 $blur1*abs($amt) hsl(0, $shadSat, $valDark) ) 
-    drop-shadow( -1*$h1*$amt*3 -1*$h1*$amt*3 $blur1*abs($amt) hsl(0, $lightSat, $valLight) );
+    drop-shadow( 
+      $h1*$amt*$omult $h1*$amt*$omult $blur1*abs($amt) 
+      hsl(0, $shadSat, $valDark) 
+    ) 
+    drop-shadow( 
+      -1*$h1*$amt*$omult -1*$h1*$amt*$omult $blur1*abs($amt) 
+      hsl(0, $lightSat, $valLight) 
+    );
 }
 
-@mixin rainbow-drop-shadow($amt) {
+@mixin rainbow-drop-shadow($amt, $omult: 2) {
   @for $i from 0 through $hueSteps {
     #{$i / $hueSteps * 100%} {
       $hh: rampUpDown($i, $hueMin, $hueMax, $hueSteps);
       filter: 
-        drop-shadow( $h1*$amt*3 $h1*$amt*3 $blur1*abs($amt) hsl($hh, $shadSat, $valDark) ) 
-        drop-shadow( -1*$h1*$amt*3 -1*$h1*$amt*3 $blur1*abs($amt) hsl($hh, $lightSat, $valLight) );
+        drop-shadow( $h1*$amt*$omult $h1*$amt*$omult $blur1*abs($amt) 
+          hsl($hh, $shadSat, $valDark) ) 
+        drop-shadow( -1*$h1*$amt*$omult -1*$h1*$amt*$omult $blur1*abs($amt) 
+          hsl($hh, $lightSat, $valLight) );
     }
   }
 }
 
-@mixin rainbow-drop-shadow-90($amt) {
+@mixin rainbow-drop-shadow-90($amt, $omult: 2) {
   @for $i from 0 through $hueSteps {
     #{$i / $hueSteps * 100%} {
       $hh: rampUpDown($i, $hueMin, $hueMax, $hueSteps);
       filter: 
-        drop-shadow( -$h1*$amt*3 $h1*$amt*3 $blur1*abs($amt) hsl($hh, $shadSat, $valDark) ) 
-        drop-shadow( 1*$h1*$amt*3 -1*$h1*$amt*3 $blur1*abs($amt) hsl($hh, $lightSat, $valLight) );
+        drop-shadow( 
+          -1*$h1*$amt*$omult $h1*$amt*$omult $blur1*abs($amt) 
+          hsl($hh, $shadSat, $valDark) 
+        ) 
+        drop-shadow( 
+          $h1*$amt*$omult -1*$h1*$amt*$omult $blur1*abs($amt) 
+          hsl($hh, $lightSat, $valLight) 
+        );
+    }
+  }
+}
+
+@mixin rainbow-drop-shadow-180($amt, $omult: 2) {
+  @for $i from 0 through $hueSteps {
+    #{$i / $hueSteps * 100%} {
+      $hh: rampUpDown($i, $hueMin, $hueMax, $hueSteps);
+      filter: 
+        drop-shadow( 
+          -1*$h1*$amt*$omult $h1*$amt*$omult $blur1*abs($amt) 
+          hsl($hh, $shadSat, $valDark) 
+        ) 
+        drop-shadow( 
+          $h1*$amt*$omult -1*$h1*$amt*$omult $blur1*abs($amt) 
+          hsl($hh, $lightSat, $valLight) 
+        );
     }
   }
 }
@@ -184,8 +223,10 @@ $glow-color: hsl(10, 90%, 80%);
     #{$i / $hueSteps * 100%} {
       $hh: rampUpDown($i, $hueMin, $hueMax, $hueSteps);
       box-shadow: 
-        inset $h1 * $amt $h1 * $amt $blur1 * $amt hsl($hh, $shadSat, $valDark), 
-        inset -1*$h1*$amt -1*$h1*$amt $blur1 * $amt hsl($hh, $lightSat, $valLight);
+        inset $h1 * $amt $h1 * $amt $blur1 * $amt 
+          hsl($hh, $shadSat, $valDark), 
+        inset -1*$h1*$amt -1*$h1*$amt $blur1 * $amt 
+          hsl($hh, $lightSat, $valLight);
     }
   }
 }
@@ -196,10 +237,14 @@ $glow-color: hsl(10, 90%, 80%);
     #{$i / $hueSteps * 100%} {
       $hh: rampUpDown($i, $hueMin, $hueMax, $hueSteps);
       box-shadow: 
-        $h1*$amt $h1*$amt $blur1*$amt hsl($hh, $shadSat, $valDark), 
-        -1*$h1*$amt -1*$h1*$amt $blur1*$amt hsl($hh, $lightSat, $valLight),
-        inset $h1*$amt $h1*$amt $blur1*$amt hsl($hh, $shadSat, $valDark), 
-        inset -1*$h1*$amt -1*$h1*$amt $blur1*$amt hsl($hh, $lightSat, $valLight);
+        $h1*$amt $h1*$amt $blur1*$amt 
+          hsl($hh, $shadSat, $valDark), 
+        -1*$h1*$amt -1*$h1*$amt $blur1*$amt 
+          hsl($hh, $lightSat, $valLight),
+        inset $h1*$amt $h1*$amt $blur1*$amt 
+          hsl($hh, $shadSat, $valDark), 
+        inset -1*$h1*$amt -1*$h1*$amt $blur1*$amt 
+          hsl($hh, $lightSat, $valLight);
     }
   }
 }
@@ -226,11 +271,23 @@ $glow-color: hsl(10, 90%, 80%);
 }
 @keyframes rainbow-svg-symbios-sm {
   @include rainbow('fill');
-  @include rainbow-drop-shadow(.06);
+  @include rainbow-drop-shadow(.06, 3);
+}
+@keyframes rainbow-svg-symbios-md {
+  @include rainbow('fill');
+  @include rainbow-drop-shadow(.085);
 }
 @keyframes rainbow-svg-symbios-sm-90 {
   @include rainbow('fill');
-  @include rainbow-drop-shadow-90(.06);
+  @include rainbow-drop-shadow-90(.06, 3);
+}
+@keyframes rainbow-svg-symbios-sm-180 {
+  @include rainbow('fill');
+  @include rainbow-drop-shadow-180(.06, 3);
+}
+@keyframes rainbow-svg-symbios-md-180 {
+  @include rainbow('fill');
+  @include rainbow-drop-shadow-180(.085);
 }
 @keyframes rainbow-text-lg {
   @include rainbow('color');

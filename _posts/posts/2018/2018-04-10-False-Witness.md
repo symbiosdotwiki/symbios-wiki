@@ -9,4 +9,5 @@ type: collab
 show_url: flase
 image:
   id: 40825663805
+hide: true
 ---

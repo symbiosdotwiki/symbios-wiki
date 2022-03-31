@@ -32,7 +32,8 @@ $tsInner-z: 200;
     width: $tag-width;
     max-width: 15vh;
     // height: $knobSize;
-    height: 100vh;
+    // height: 100vh;
+    height: 100%;
 
   position: relative;
   // top: 10vmin;
@@ -57,7 +58,8 @@ $tsInner-z: 200;
 
 
 .tagKnobs {
-  height: 100vh;
+  // height: 100vh;
+  height: 100%;
   position: fixed;
   // top: 10vh;
   left: 0;
@@ -69,6 +71,7 @@ $tsInner-z: 200;
 .tagKnobs .tag-selector-knobs {
   transform: translate(0, 0%);
   transition: transform $swipe-time;
+  height: 100%;
 }
 
 .tagKnobs-slide {
