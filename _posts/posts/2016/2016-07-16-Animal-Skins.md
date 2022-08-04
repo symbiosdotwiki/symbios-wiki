@@ -2,7 +2,7 @@
 layout: media
 title: "Animal Skins"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "Animal Skins"
 show_blurb: true
 ads: false

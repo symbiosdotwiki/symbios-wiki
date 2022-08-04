@@ -2,7 +2,7 @@
 layout: media
 title: "Portraits of Scourge"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "Portraits of Scourge"
 show_blurb: true
 ads: false

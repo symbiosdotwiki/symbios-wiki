@@ -2,7 +2,7 @@
 layout: media
 title: "birds_without_space"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "birds_without_space"
 ads: false
 share: false

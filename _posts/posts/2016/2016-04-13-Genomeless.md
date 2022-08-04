@@ -3,7 +3,7 @@ layout: media
 title: "Genomeless"
 blurb:
 tags:
-  categories: visual
+  categories: 3d
 ads: false
 share: false
 image:

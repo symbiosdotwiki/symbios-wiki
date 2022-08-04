@@ -2,7 +2,7 @@
 layout: media
 title: "Raingurl Umbrella"
 tags:
-  categories: physical
+  categories: physical, realtime
 ads: false
 share: false
 blurb: "WiFi-controlled LED umbrella prop."

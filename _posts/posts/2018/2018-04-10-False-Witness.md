@@ -2,7 +2,7 @@
 layout: media
 title: "False Witness - In The Dark"
 tags:
-  categories: visual
+  categories: 3d, realtime
 blurb: "In collaboration with Enayet Kabir as Studio Fluora for False Witness' In The Dark EP"
 show_blurb: true
 type: collab

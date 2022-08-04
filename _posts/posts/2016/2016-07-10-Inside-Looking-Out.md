@@ -3,7 +3,7 @@ layout: media
 title: "Inside Looking Out"
 blurb: "Inside Looking Out #BlackLivesMatter"
 tags:
-  categories: visual
+  categories: 3d
 ads: false
 share: false
 show_blurb: true

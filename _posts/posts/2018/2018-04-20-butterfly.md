@@ -2,7 +2,7 @@
 layout: media
 title: "Specimen 18-1: Jungle Butterfly"
 tags:
-  categories: visual
+  categories: 3d, realtime
 blurb: "Specimen 18-1: Jungle Butterfly"
 ads: false
 share: false

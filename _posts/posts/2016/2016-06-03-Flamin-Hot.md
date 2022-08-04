@@ -2,7 +2,7 @@
 layout: media
 title: "Flamin' Hot Rainforests"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "Flamin' Hot Rainforests"
 ads: false
 share: false

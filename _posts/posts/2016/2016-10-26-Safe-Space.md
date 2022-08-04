@@ -2,7 +2,7 @@
 layout: media
 title: "Safe Spaces"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "Safe Spaces"
 show_blurb: true
 ads: false

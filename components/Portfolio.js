@@ -336,11 +336,18 @@ class Portfolio extends Component{
 
   tagSelect = (tag, tagType) => {
     let { tags } = this.state
-    let tagsOG = this.props.tags
+
+    let tagsOG = this.props.tagsOG
     let newTags = JSON.parse(JSON.stringify(tagsOG))
 
     newTags[tagType][tag] = !tags[tagType][tag]
     this.tagFilters[tagType] = this.selectedTags(newTags[tagType])
+
+    // console.log('props', this.props)
+    // console.log('tags', tags.categories)
+    // console.log('tagsOG', tagsOG.categories)
+    // console.log('newTags', newTags.categories)
+    // console.log('tagFilters', this.tagFilters.categories)
 
     let posts = this.filterPosts()
     let newState = {

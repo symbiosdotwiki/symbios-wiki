@@ -87,6 +87,7 @@ export function getAllPosts(fields = []) {
     "allPosts" : mdContent,
     "tagsLists" : tagsLists,
     "tagFilters" : tagFilters,
-    "tags" : tags
+    "tags" : tags,
+    "tagsOG" : JSON.parse(JSON.stringify(tags))
   }
 }

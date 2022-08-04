@@ -3,7 +3,7 @@ layout: media
 title: "SUGARQUOTE"
 tags:
   categories: aural
-blurb: "SUGARQUOTE"
+blurb: "A collection of SUGARQUOTE tracks and mixes from Soundcloud"
 ads: false
 share: false
 sound:

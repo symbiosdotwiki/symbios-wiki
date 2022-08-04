@@ -3,7 +3,7 @@ title: "Aurora Torus"
 tags:
   categories: aural
 client: "Personal"
-blurb: "Compilation featuring my track Aurora Torus"
+blurb: "Track for the compilation 'Consequences' out on DECISIONS"
 showmore: false
 sound:
   id: 916363105

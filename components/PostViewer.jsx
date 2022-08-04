@@ -51,7 +51,7 @@ class PostViewer extends Component {
   mdfp = [95, 80]
   mdp = [90, 60]
   mdfl = [85, 95]
-  mdl = [85, 60]
+  mdl = [80, 60]
 
   animLength = 1
   firstTime = 0

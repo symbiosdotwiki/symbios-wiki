@@ -2,7 +2,7 @@
 layout: media
 title: "ny is killin me"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "ny is killin me"
 show_blurb: true
 ads: false

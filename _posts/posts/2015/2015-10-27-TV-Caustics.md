@@ -2,7 +2,7 @@
 layout: media
 title: "TV Caustics"
 tags:
-  categories: visual
+  categories: 3d
 blurb: 
 ads: false
 share: false

@@ -2,7 +2,7 @@
 layout: media
 title: "DIE YUPPIE SCUM"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "DIE YUPPIE SCUM"
 show_blurb: true
 ads: false

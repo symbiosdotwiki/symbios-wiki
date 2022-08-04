@@ -2,7 +2,7 @@
 layout: media
 title: "Four Themes"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "Four Themes"
 show_blurb: true
 ads: false

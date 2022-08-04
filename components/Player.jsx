@@ -133,21 +133,22 @@ class Player extends Component {
 					this.props.setRatio(this.ratio)
 				})
 			}
-			else{
-				this.ratio = 3
+			else{ //soundcloud
+				this.ratio = 1
 				this.setState({
 					loaded: true,
 				})
 				this.props.setRatio(this.ratio)
 			}
 		}
-		else{
+		else{ //iframe or bandcamp
 			this.setState({
 				loaded: true,
 			})
 			this.ratio = playerType == 'bandcamp' ? .7 : this.ratio
 			this.props.setRatio(this.ratio)
 		}
+		// console.log(this.ratio)
 
 		
 	}
@@ -253,6 +254,10 @@ class Player extends Component {
 			          loop={true}
 			          ref={this.playerRef}
 			          style={animDelay([animLength])}
+			          options={{
+			          	'visual':true,
+			          	'show_teaser':true
+			          }}
 			        />
 			       </div>
 		  	}</div>

@@ -2,7 +2,7 @@
 layout: media
 title: "Snowflake"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "Snowflake"
 ads: false
 share: false

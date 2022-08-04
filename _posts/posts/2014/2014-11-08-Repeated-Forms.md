@@ -2,7 +2,7 @@
 layout: media
 title: "Repeated Forms of Discontinuity Rotating in Place"
 tags:
-  categories: visual
+  categories: 3d
 blurb: "Repeated Forms of Discontinuity Rotating in Place"
 ads: false
 share: false
