@@ -11,13 +11,15 @@ class BandcampPlayer extends Component {
       merch,
       tracklist,
       artwork,
-    } = this.props;
+      track
+    } = this.props
 
-    const merchString = merch ? `/package=${merch}` : '';
-    const tracklistString = tracklist ? '' : '/tracklist=false';
-    const artworkString = artwork ? `/artwork=${artwork}` : '';
-
-    return `https://bandcamp.com/EmbeddedPlayer/album=${album}/size=${size}/bgcol=${bgcol}/linkcol=${linkcol}${merchString}${tracklistString}${artworkString}/`;
+    const merchString = merch ? `/package=${merch}` : ''
+    const tracklistString = tracklist ? '' : '/tracklist=false'
+    const artworkString = artwork ? `/artwork=${artwork}` : ''
+    let url = `https://bandcamp.com/EmbeddedPlayer/album=${album}/size=${size}/bgcol=${bgcol}/linkcol=${linkcol}${merchString}${tracklistString}${artworkString}/`
+    url = track ? url + `/track=${track}` : url;
+    return url
   }
 
   getStyles() {
@@ -30,7 +32,7 @@ class BandcampPlayer extends Component {
       border: 0,
       width,
       height,
-    };
+    }
   }
 
   render() {
@@ -49,7 +51,7 @@ class BandcampPlayer extends Component {
         seamless
         onLoad={onLoad}
       />
-    );
+    )
   }
 }
 

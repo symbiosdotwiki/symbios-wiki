@@ -4,7 +4,6 @@ import Markdown from './helpers/Markdown'
 import ReactMarkdown from "react-markdown"
 
 import ReactPlayer from 'react-player'
-import BandcampPlayer from 'react-bandcamp'
 import { Col, Spinner } from 'react-bootstrap'
 
 import { getFlickrGallery, getFlickrImg } from './helpers/FlickrAPI.js'
@@ -266,7 +265,7 @@ class PostViewer extends Component {
     const { loaded, carousel, carIdx, fullscreen, ratio, maxDim } = this.state
     const {animDelay, setRatio} = this
 
-    // console.log(post)
+    
 
     let spinny = loaded || img
 
@@ -287,7 +286,7 @@ class PostViewer extends Component {
         className={"post-stuff " + (fullscreen ? "fullscreen" : '')}
         style={animDelay([animLength])}
         ref={this.pageRef}
-      >         
+      >  
 
         <div 
           className="post-title-lg"
@@ -361,6 +360,7 @@ class PostViewer extends Component {
         {isSelected ? 
           <Player
             url={carousel[carIdx] ? carousel[carIdx] : ''}
+            data={data}
             animDelay={this.props.animDelay}
             getTime={getTime}
             animLength={animLength}

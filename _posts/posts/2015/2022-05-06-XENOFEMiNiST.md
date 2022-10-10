@@ -7,6 +7,7 @@ bandcamp:
   type: album
   url: https://shubzin.bandcamp.com/track/xenofeminist-antinaturalist
   id: 4233669195
+  track: 3112061843
   img: https://f4.bcbits.com/img/a1140796984_10.jpg
 ---
 

@@ -165,7 +165,7 @@ class Player extends Component {
 	}
 
   render(){
-  	const { onReady, ID, isSelected, url, maxDim, animLength, getTime, ratio } = this.props
+  	const { onReady, ID, isSelected, url, maxDim, animLength, getTime, ratio, data } = this.props
   	const { animDelay, spinnerTime, setLoaded, playerType } = this
   	const { loaded, thumbnail, photoUrl } = this.state
 
@@ -211,6 +211,7 @@ class Player extends Component {
 		          bgcol="242626"
 		          onLoad={setLoaded}
 		          style={animDelay([animLength])}
+		          track={data.bandcamp.track}
 		        /> :
 		      playerType == 'flickr' ?
 		      <div 
