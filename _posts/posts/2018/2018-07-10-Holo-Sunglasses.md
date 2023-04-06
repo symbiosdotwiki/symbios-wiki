@@ -8,6 +8,7 @@ show_blurb: true
 ads: false
 share: false
 show_url: false
+hide: true
 image:
   id: 47389760812
 ---
