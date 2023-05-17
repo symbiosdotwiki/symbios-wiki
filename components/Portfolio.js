@@ -45,7 +45,7 @@ class Portfolio extends Component{
   tagFilters = {}
   minPosts = 8
 
-  showIntro = false
+  showIntro = true
   redirect = false
   redirect_url = "https://www.instagram.com/symbios.wiki"
 
