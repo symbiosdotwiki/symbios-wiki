@@ -1,7 +1,7 @@
 {
   "name": "symbios-wiki",
   "version": "0.1.0",
-  "homepage": "https://nwaxiomatic.github.io/symbios-wiki",
+  "homepage": "https://symbiosdotwiki.github.io/symbios-wiki",
   "private": true,
   "scripts": {
     "dev": "next dev",
