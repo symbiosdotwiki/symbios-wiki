@@ -174,7 +174,7 @@ class PostViewer extends Component {
 
   handleGesture = (type) => {
     const {touchstartX, touchendX} = this
-    const sensitivity = 5;
+    const sensitivity = 7;
     if(type == 'page'){
       if( touchstartX - touchendX > sensitivity){
         this.props.nextPost()
@@ -224,7 +224,21 @@ class PostViewer extends Component {
         this.touchendX = e.changedTouches[0].screenX
         this.handleGesture('car')
       })
+      window.addEventListener('keyup', e => {
+        e.stopPropagation()
+        if(e.keyCode == 39){
+          this.nextCar()
+        }
+        else if(e.keyCode == 37){
+          this.prevCar()
+        }
+      })
     }
+
+    const handleKeyUp = () => {
+      // Reset the arrow key pressed when it's released
+      setArrowKeyPressed('');
+    };
 
     if(isBrowser){
       window.addEventListener('resize', this.handleResize)
