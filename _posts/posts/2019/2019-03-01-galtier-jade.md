@@ -14,6 +14,7 @@ showmore: false
 photoset:
   id: https://www.flickr.com/photos/136394409@N04/albums/72177720308381959
 carousel: [https://soundcloud.com/nostro-hood-system/sets/galtier-recluse-jade-pillar-1]
+featured: true
 ---
 
 Cover art utilizing a custom Huffman-optimized lettering and various differential growth techniques. This font is made using two symmetic trinary trees with 13 nodes each to create a Huffman-optimized code using braids. Made in LaTeX. Render made with Houdini and Cinema4D.

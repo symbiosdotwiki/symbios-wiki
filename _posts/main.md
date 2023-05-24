@@ -8,6 +8,12 @@ logo:
 ***
 
 # **Releases**
+**2023** - *g_sv 001*. g_sv, Berlin.
+
+**2022** - *Shubzin 05*. Shubzin, London.
+
+**2020** - *Ungoliant*. Track with Galen Tipton. Orange Milk, Ohio.
+
 **2020** - [*Consequences*](https://ra.co/reviews/25237). DECISIONS, Melbourne/London.
 
 **2019** - [*Isomov - In Theory*](https://ra.co/reviews/24161). DECISIONS, Melbourne/London.
@@ -24,6 +30,8 @@ logo:
 ***
 
 # **Features**
+**2021** - [*THE HAWALA HISTORY OF THE NFT*](https://www.rightclicksave.com/article/the-hawala-history-of-the-nft), Artist and VR Developer. Paradise Row. London.
+
 **2019** - [*The Brilliant Sound Experience*](https://design-milk.com/the-brilliant-sound-experience-pop-up-by-sonos-google/), Shader Deveopment. Holy Herndon, Dave and Gabe, Sonos, Google. New York.
 
 **2018** - [*Oneohtrix Point Never - Myriad*](http://www.armoryonpark.org/programs_events/detail/myriad), VFX Assistance. Park Avenue Armory, New York.
@@ -39,8 +47,10 @@ logo:
 **2016** - [*Virtual Organisms Writhe in Generative Music Video "Tehraj"*](http://thecreatorsproject.vice.com/en_us/blog/generative-music-video-organisms). The Creator's Project, VICE.
 ***
 
-# **Presentations**
-**2019** - *Becoming and Machine Learning* for Antoine Catala's 
+# **Workshops and Presentations**
+**2023** - *Wireless Wearables and Touchdesigner* for Gefahrliche Arbeit, Berlin.
+
+**2019** - *AI, Art, and Ethics* for Antoine Catala's 
 Technology and Transformation. Yale, Connecticut.
 
 **2016** - *Borromean Resistance: performance (x+1)* for Natalie Jeremijenko's Environmental Art Activism Course. NYU, New York.
@@ -49,9 +59,11 @@ Technology and Transformation. Yale, Connecticut.
 ***
 
 # **Group Exhibitions**
+**2021** - Hawala. Paradise Row, London.
+
 **2017** - FELT Zine. Superchief Gallery, Queens.
 
-**2016** - [Borromean Resistance: performance (x+1)](https://rhizome.org/community/45637/). AC Institute, New York.
+**2016** - Borromean Resistance: performance (x+1). AC Institute, New York.
 
 **2016** - Sunset @ Noon. III Points Music Festival, Miami.
 

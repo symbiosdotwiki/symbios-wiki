@@ -37,10 +37,11 @@ export var getFlickrImg = function(image, size, imgLoaded, onlySrc) {
         return obj.label === size
       }
     )
+    // console.log(response.sizes.size)
     if(imgSrc.length == 0){
       imgSrc = response.sizes.size.filter(
         obj => {
-          return obj.label === "Thumbnail"
+          return obj.label === "Small 400"
         }
       )
     }

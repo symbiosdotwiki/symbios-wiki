@@ -23,7 +23,8 @@ export function getAllPosts(fields = []) {
 
   let mdContent = mdFiles.map(file => {
     let mdCont = matter(fs.readFileSync(file, 'utf8'))
-    // console.log(mdCont)
+    // console.log(mdCont.data.featured)
+    mdCont.data.featured = mdCont.data.featured ? 1 : 0
     delete mdCont.orig
     return ({
       ...mdCont,
@@ -35,7 +36,9 @@ export function getAllPosts(fields = []) {
     return file.data.hide ? false : true
   })
 
-  mdContent.sort((a, b) => b.filename.localeCompare(a.filename))
+  console.log(mdContent)
+
+  mdContent.sort((a, b) => b.data.featured - a.data.featured || b.filename.localeCompare(a.filename))
 
   // console.log('\nHIII')
   let mainpath = path.join(process.cwd(), '_posts/main.md')
@@ -75,7 +78,7 @@ export function getAllPosts(fields = []) {
     tagFilters[tagType] = []
   })
 
-  console.log(tags)
+  // console.log(tags)
   // console.log(tagsLists)
   // console.log(tags)
   // console.log(tagFilters)
