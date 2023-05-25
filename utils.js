@@ -36,7 +36,7 @@ export function getAllPosts(fields = []) {
     return file.data.hide ? false : true
   })
 
-  console.log(mdContent)
+  // console.log(mdContent)
 
   mdContent.sort((a, b) => b.data.featured - a.data.featured || b.filename.localeCompare(a.filename))
 

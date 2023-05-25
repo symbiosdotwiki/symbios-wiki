@@ -13,6 +13,15 @@ $symbios-small: 8vmin;
     }
   }
 
+.header {
+  width: calc(.9*var(--header-width));
+  height: 100%;
+}
+
+// .header-cont {
+//   width: calc(.9*var(--header-width));
+//   height: 100%;
+// }
 
 .header, .header button {
 	position: absolute;
@@ -61,6 +70,42 @@ $symbios-small: 8vmin;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
+
+.header .social {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  // height: calc(.9*var(--header-width));
+  transform: translate(-0%, -50%);
+}
+
+.infoViewer .social{
+left: 10%;
+}
+
+.social svg{
+  // color: black;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  width: 70%;
+  height: 70%;
+  margin-bottom: 15%;
+
+  overflow: visible;
+  // transition: all $fade-time ease-in;
+  // fill: white;
+  animation-name: rainbow-svg-symbios;
+  animation-duration: $rainbowTime;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+// .social svg path{
+//   width: 100%;
+// }
 
 // $plusSize: 7vmin;
 .header .xPlus {

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SymbiosSVG from '../svg/symbios.svg'
 // import SymbiosSpin from '../svg/symbios-spin.svg'
 import XPlus from './xPlus'
+import Socials from './Socials'
 
 class Header extends Component {
 
@@ -29,6 +30,12 @@ class Header extends Component {
         onClick={menuClick}
         animDelay={this.props.animDelay}
         expanded={expanded}
+        getTime={getTime}
+        animLength={animLength}
+      />
+
+      <Socials
+        animDelay={this.props.animDelay}
         getTime={getTime}
         animLength={animLength}
       />

@@ -2,6 +2,7 @@ import React, { Component, useEffect, createRef } from 'react'
 
 import { Container, Row, Col } from 'react-bootstrap'
 import SymbiosSVG from '../svg/symbios.svg'
+import Socials from './Socials'
 
 import ReactMarkdown from 'react-markdown'
 import remarkBreaks from 'remark-breaks'
@@ -44,11 +45,21 @@ class Info extends Component{
             
         </div>
 
+        <div 
+          className="header"
+        >
+        <Socials
+          animDelay={this.props.animDelay}
+          getTime={getTime}
+          animLength={animLength}
+        />
+
          <SymbiosSVG 
           className="symbios-svg-header"
           style={animDelay([animLength])}
           onClick={infoClick}
         />
+        </div>
       </div>
     )
   }

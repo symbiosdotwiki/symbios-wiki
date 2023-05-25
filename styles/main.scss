@@ -275,6 +275,11 @@ button, input[type="submit"], input[type="reset"] {
   transition: .75s;
 }
 
+.infoViewer {
+  width: 100%;
+  height: 100%;
+}
+
   .infoViewer-slide {
     transform: translate(0, 0);
   }
