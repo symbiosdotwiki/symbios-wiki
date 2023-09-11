@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSoundcloud, faInstagram, faBandcamp, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { 
+  faSoundcloud, faInstagram, faBandcamp, faGithub, faTwitter 
+} from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 
 class Socials extends Component {
@@ -13,7 +16,8 @@ class Socials extends Component {
     bc: "https://isomov.bandcamp.com/",
     gh: "https://github.com/symbiosdotwiki",
     tw: "https://twitter.com/symbios_wiki",
-    in: "https://www.instagram.com/symbios.wiki/"
+    in: "https://www.instagram.com/symbios.wiki/",
+    em: "mailto:symbios@symbios.wiki",
   }
 
   // router = useRouter()
@@ -39,6 +43,13 @@ class Socials extends Component {
       <div className="social">
 
           <FontAwesomeIcon 
+            className="envelope fa-lg" 
+            icon={faEnvelope} 
+            style={animDelay([animLength])}
+            onClick={() => this.openPage(links.em)}
+          />
+
+          <FontAwesomeIcon 
             className="soundcloud fa-lg" 
             icon={faSoundcloud} 
             style={animDelay([animLength])}
@@ -59,12 +70,12 @@ class Socials extends Component {
             onClick={() => this.openPage(links.tw)}
           />
 
-          <FontAwesomeIcon 
+          {/*<FontAwesomeIcon 
             className="bandcamp fa-lg" 
             icon={faBandcamp} 
             style={animDelay([animLength])}
             onClick={() => this.openPage(links.bc)}
-          />
+          />*/}
 
           <FontAwesomeIcon 
             className="github fa-lg" 

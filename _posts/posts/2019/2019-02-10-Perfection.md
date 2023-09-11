@@ -1,5 +1,6 @@
 ---
 layout: media
+hide: true
 title: "PERFECTION IS FOREVER"
 tags:
   categories: 3d

@@ -106,6 +106,8 @@ class PostViewer extends Component {
     else if(video){
       videoURL = 'https://www.vimeo.com/'
       videoURL += video.id.toString().split('/').pop()
+      videoURL += video.secret ? '/' + video.secret.toString() : ''
+      console.log("VIMEO ", videoURL)
       carouselList.push(videoURL)
     }
     if(iframe){
@@ -197,6 +199,10 @@ class PostViewer extends Component {
     this.setState(this.getMaxDim())
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
+  }
+
   componentDidMount() {
     const { post } = this.props
     const { content, data, img } = post
@@ -245,26 +251,26 @@ class PostViewer extends Component {
     }
 
 
-      this.setCarousel([], () =>{
-        if(photoset){
-          getFlickrGallery(
-            photoset.id.toString().split("/").pop(), 
-            (response) => {
-              this.setCarousel(response, ()=>{})
-            }
-          )
-        }
-        else if(image){
-          getFlickrImg(
-            image.id.toString().split("/").pop(),
-            'Original',
-            (response) => {
-              this.setCarousel([response], ()=>{})
-            },
-            true
-          )
-        }
-      })
+    this.setCarousel([], () =>{
+      if(photoset){
+        getFlickrGallery(
+          photoset.id.toString().split("/").pop(), 
+          (response) => {
+            this.setCarousel(response, ()=>{})
+          }
+        )
+      }
+      else if(image){
+        getFlickrImg(
+          image.id.toString().split("/").pop(),
+          'Original',
+          (response) => {
+            this.setCarousel([response], ()=>{})
+          },
+          true
+        )
+      }
+    })
   }
 
   carouselRenderItem = (item, props) => <item.type {...item.props} {...props} />
