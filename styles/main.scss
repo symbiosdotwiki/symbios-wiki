@@ -93,6 +93,13 @@ body {
   border-radius: 15px;
 } 
 
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: hsl(0, $sat, $val) transparent; /* thumb and track color */
+}
+
 body{
   background-color: hsl($hueMin, $sat, $val);
   animation-duration: $rainbowTime;
