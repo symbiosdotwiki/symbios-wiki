@@ -6,6 +6,7 @@ tags:
 blurb: "A track from Hyperboloid's #internetghetto series"
 ads: false
 share: false
+hide: true
 sound:
   # type: playlists
   id: 354123549

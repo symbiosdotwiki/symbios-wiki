@@ -9,6 +9,7 @@ show_url: false
 show_excerpt: true
 client: "Treasuredog"
 blurb: "A man covered in grass ponders the flower on his head."
+hide: true
 showmore: false
 image:
   id: 34717848524

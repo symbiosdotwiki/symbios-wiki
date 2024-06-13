@@ -1,7 +1,7 @@
 ---
 title: "DEEP END"
 tags:
-  categories: web, realtime, 3d, aural
+  categories: web, realtime, 3d, aural, ai
 client: "Personal"
 blurb: "React Three Fiber website with Marvelous Designer balloon animals textured with Stable DIffusion and custom .gltf Houdini pipeline."
 iframe: https://www.bellcurve.world/

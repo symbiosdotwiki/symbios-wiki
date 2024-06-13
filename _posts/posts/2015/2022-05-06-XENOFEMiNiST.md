@@ -3,6 +3,7 @@ title: "XENOFEMiNiST ANTiNATURALiST"
 tags:
   categories: aural
 blurb: "Track for the fifth Shubzin compilation"
+hide: true
 bandcamp:
   type: album
   url: https://shubzin.bandcamp.com/track/xenofeminist-antinaturalist

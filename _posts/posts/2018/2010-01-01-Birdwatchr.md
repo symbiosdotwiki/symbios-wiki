@@ -6,6 +6,7 @@ tags:
 blurb: "A collection of DJ Birdwatchr tracks from Soundcloud"
 ads: false
 share: false
+hide: true
 sound:
   type: playlists
   id: 354123549

@@ -519,7 +519,7 @@ class Portfolio extends Component{
         className={'main-cont noselect ' + (zooming ? 'zooming' : '')}
       >
 
-      {mobile ? "" : 
+      {mobile || true ? "" : 
 
        <svg xmlns="http://www.w3.org/2000/svg" id="turbFilter">
           <filter id="filter" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="linearRGB">

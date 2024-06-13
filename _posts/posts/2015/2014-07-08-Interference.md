@@ -4,6 +4,7 @@ title: "Isomov - Interference LP"
 tags:
   categories: aural
 blurb: "Isomov - Interference LP"
+hide: true
 bandcamp:
   type: album
   url: https://symbios-wiki.bandcamp.com/album/interference

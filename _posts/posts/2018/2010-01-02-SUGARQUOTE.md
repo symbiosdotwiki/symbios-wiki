@@ -6,6 +6,7 @@ tags:
 blurb: "A collection of SUGARQUOTE tracks and mixes from Soundcloud"
 ads: false
 share: false
+hide: true
 sound:
   type: playlists
   id: 348985840
