@@ -56,6 +56,14 @@ $tsInner-z: 200;
 //   }
 // }
 
+@keyframes hideElement {
+    0% { opacity: 1; visibility: visible;}
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes showElement {
+    0% { opacity: 1; visibility: visible;}
+}
 
 .tagKnobs {
   // height: 100vh;
@@ -65,6 +73,7 @@ $tsInner-z: 200;
   left: 0;
   transform: translate(-110%, 0%) scale(1);
   transition: transform $swipe-time;
+  animation: hideElement 1s forwards;
   // z-index: -999999;
 }
 
@@ -76,6 +85,9 @@ $tsInner-z: 200;
 
 .tagKnobs-slide {
   transform: translate(0%, 0%) scale(1);
+  opacity: 1;
+  visibility: visible;
+  animation: showElement 1s forwards;
 }
 
 .tagKnobs-slide .tag-selector-knobs {

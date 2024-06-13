@@ -280,6 +280,7 @@ button, input[type="submit"], input[type="reset"] {
   // background: lightblue;
   // display: none;
   transition: .75s;
+  visibility: hidden;
 }
 
 .infoViewer {
@@ -289,6 +290,7 @@ button, input[type="submit"], input[type="reset"] {
 
   .infoViewer-slide {
     transform: translate(0, 0);
+    visibility: visible;
   }
 
 
