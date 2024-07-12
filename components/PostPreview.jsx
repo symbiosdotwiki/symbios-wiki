@@ -166,8 +166,10 @@ class PostPreview extends Component {
         )
       }
       else if(video && !video.youtube){
+        let id = video.id
+        id += video.secret ? '/' + video.secret : ''
         getVimeoImg(
-          video.id, (img) => this.imgLoaded(img)
+          id, (img) => this.imgLoaded(img)
         )
       }
       else if(video && video.youtube){
