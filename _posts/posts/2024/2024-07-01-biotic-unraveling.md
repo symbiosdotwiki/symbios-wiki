@@ -3,7 +3,7 @@ title: "Biotic Unraveling"
 tags:
   categories: ai, realtime, 3d, aural
 client: "Personal"
-blurb: "Physical release for my EP In Theory"
+blurb: "AI data visualization video piece for Sonar Music Festival"
 showmore: false
 # photoset:
 #   id: https://www.flickr.com/photos/136394409@N04/albums/72177720307308669
